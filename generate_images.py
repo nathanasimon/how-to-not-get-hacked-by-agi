@@ -30,7 +30,7 @@ def generate_image(prompt, filename, aspect_ratio="16:9"):
     print(f"Prompt: {prompt}")
     
     payload = {
-        "model": "google/gemini-2.5-flash-image-preview",
+        "model": "google/gemini-3-pro-image-preview",
         "messages": [
             {
                 "role": "user",
@@ -45,7 +45,12 @@ def generate_image(prompt, filename, aspect_ratio="16:9"):
     
     try:
         response = requests.post(url, headers=headers, json=payload)
-        response.raise_for_status()
+        
+        if response.status_code != 200:
+            error_data = response.json() if response.text else {}
+            print(f"✗ Error {response.status_code}: {error_data.get('error', {}).get('message', response.text[:200])}")
+            return None
+            
         result = response.json()
         
         if result.get("choices"):
