@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Lock Your Digital Life - Simple Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f5f5;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-section {
+            background: white;
+            border: 3px solid #ff6b35;
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .cover-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            border: none;
+        }
+
+        .cover-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .cover-title-accent {
+            color: #ff6b35;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 2rem;
+        }
+
+        .cover-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #ff6b35;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            border-bottom: 3px solid #ff6b35;
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section {
+            margin-bottom: 2rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .factor-box {
+            background: rgba(255, 107, 53, 0.1);
+            border: 3px solid #ff6b35;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .factor-box h3 {
+            color: #ff6b35;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .factor-box .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: #ff6b35;
+            color: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+
+        .factor-box .badge.secure {
+            background: #06a77d;
+        }
+
+        .factor-box .badge.insecure {
+            background: #ff6b35;
+        }
+
+        .factor-box .badge.warning {
+            background: #ffd23f;
+            color: #1a1a1a;
+        }
+
+        .vulnerability-list {
+            background: rgba(255, 107, 53, 0.05);
+            border-left: 4px solid #ff6b35;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .vulnerability-list h4 {
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .vulnerability-list ul {
+            margin-left: 1.5rem;
+        }
+
+        .vulnerability-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .icon-large {
+            font-size: 4rem;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .warning-box {
+            background: rgba(255, 210, 63, 0.2);
+            border: 2px solid #ffd23f;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .warning-box strong {
+            color: #ff6b35;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .chain-diagram {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: rgba(0, 78, 137, 0.1);
+            border-radius: 8px;
+            flex-wrap: wrap;
+        }
+
+        .chain-link {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .chain-link .link-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .chain-link .link-label {
+            font-weight: 600;
+            color: #004e89;
+        }
+
+        .arrow {
+            font-size: 2rem;
+            color: #ff6b35;
+        }
+
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        ul li, ol li {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem;
+            border-bottom: 2px solid #ff6b35;
+        }
+
+        .nav-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .nav-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            color: #ff6b35;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        main {
+            padding-top: 80px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .page-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .chain-diagram {
+                flex-direction: column;
+            }
+            
+            .arrow {
+                transform: rotate(90deg);
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <span class="nav-title">HOW TO LOCK YOUR DIGITAL LIFE</span>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <!-- Cover -->
+            <div class="page-section cover-section">
+                <h1 class="cover-title">HOW TO LOCK</h1>
+                <h1 class="cover-title-accent">YOUR DIGITAL LIFE</h1>
+                <p class="cover-subtitle">A simple guide to staying safe online</p>
+                <div style="margin-top: 2rem; font-size: 1.2rem;">
+                    <p>🔒 Passwords • 📱 Phones • 👆 Your Body</p>
+                </div>
+            </div>
+
+            <!-- Page 2: Introduction -->
+            <div class="page-section">
+                <h2 class="section-title">Why This Matters</h2>
+                <div class="content-section">
+                    <p>Think of your online accounts like your house. You wouldn't leave your front door unlocked, right?</p>
+                    
+                    <p>But here's the thing: AI is making it easier for bad people to break into your digital "house." They can:</p>
+                    
+                    <ul>
+                        <li>Guess your passwords using AI</li>
+                        <li>Clone voices to trick you</li>
+                        <li>Hack automatically, 24/7</li>
+                        <li>Steal your phone number (SIM swapping)</li>
+                    </ul>
+                    
+                    <p style="margin-top: 1.5rem;"><strong>The good news?</strong> You can protect yourself. It's all about using the right kind of lock.</p>
+                </div>
+            </div>
+
+            <!-- Page 3: What is Authentication? -->
+            <div class="page-section">
+                <h2 class="section-title">What is Authentication?</h2>
+                <div class="content-section">
+                    <p><strong>Authentication</strong> is how you prove you're really you when you log into something.</p>
+                    
+                    <p>Think of it like showing ID at a store. The store needs to know you're really you before they let you buy something.</p>
+                    
+                    <div class="icon-large">🔐</div>
+                    
+                    <p>There are three ways to prove who you are:</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <div style="background: rgba(0, 78, 137, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <strong style="color: #004e89;">1. Something You KNOW</strong><br>
+                            Like a password or PIN
+                        </div>
+                        <div style="background: rgba(0, 78, 137, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <strong style="color: #004e89;">2. Something You HAVE</strong><br>
+                            Like your phone or a physical key
+                        </div>
+                        <div style="background: rgba(0, 78, 137, 0.1); padding: 1rem; border-radius: 8px;">
+                            <strong style="color: #004e89;">3. Something You ARE</strong><br>
+                            Like your fingerprint or face
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 4: 1FA -->
+            <div class="page-section">
+                <h2 class="section-title">1FA: Just a Password</h2>
+                
+                <div class="factor-box">
+                    <span class="badge insecure">INSECURE</span>
+                    <h3>🔑 1 Factor = Something You KNOW</h3>
+                    <p>This is just a password. That's it.</p>
+                </div>
+
+                <div class="vulnerability-list">
+                    <h4>Why It's Not Safe Anymore:</h4>
+                    <ul>
+                        <li><strong>AI can guess passwords</strong> - It learns patterns from billions of leaked passwords</li>
+                        <li><strong>Data breaches</strong> - Your password gets stolen from hacked websites</li>
+                        <li><strong>Phishing</strong> - AI creates fake websites that trick you into giving your password</li>
+                        <li><strong>One mistake = Everything gone</strong> - If someone gets your password, they get everything</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <strong>⚠️ The Problem:</strong>
+                    <p>1FA was okay before the internet existed. But now? It's like using a screen door to protect your house. AI makes it even worse because it can try millions of passwords per second.</p>
+                </div>
+
+                <p style="margin-top: 1.5rem;"><strong>Bottom line:</strong> Never use just a password. Always add more protection.</p>
+            </div>
+
+            <!-- Page 5: 2FA -->
+            <div class="page-section">
+                <h2 class="section-title">2FA: Password + Something Else</h2>
+                
+                <div class="factor-box">
+                    <span class="badge warning">BETTER, BUT RISKY</span>
+                    <h3>🔑📱 2 Factors = Something You KNOW + Something You HAVE</h3>
+                    <p>Password (something you know) + Phone/SMS code (something you have)</p>
+                </div>
+
+                <div class="content-section">
+                    <p><strong>How it works:</strong> You enter your password, then you get a code sent to your phone. You enter that code too.</p>
+                    
+                    <p><strong>Why it's better:</strong> Even if someone steals your password, they still need your phone to get in.</p>
+                </div>
+
+                <div class="vulnerability-list">
+                    <h4>But AI Makes 2FA Risky:</h4>
+                    <ul>
+                        <li><strong>SIM Swapping</strong> - Hackers trick your phone company into giving them your phone number. Then they get your SMS codes.</li>
+                        <li><strong>Voice Cloning</strong> - AI clones your voice and calls your phone company pretending to be you. They ask to transfer your number. It works.</li>
+                        <li><strong>Phishing</strong> - AI creates fake login pages that steal both your password AND your 2FA code</li>
+                        <li><strong>Man-in-the-Middle</strong> - AI can intercept codes between your phone and the website</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <strong>⚠️ The Problem:</strong>
+                    <p>2FA was great for the internet age. But AI can now break it. SIM swapping + voice cloning = hackers can steal your phone number without you knowing.</p>
+                </div>
+
+                <p style="margin-top: 1.5rem;"><strong>Better option:</strong> Use an authenticator app (like Google Authenticator) instead of SMS. But even that's not perfect against AI.</p>
+            </div>
+
+            <!-- Page 6: 3FA -->
+            <div class="page-section">
+                <h2 class="section-title">3FA: The Strongest Lock</h2>
+                
+                <div class="factor-box">
+                    <span class="badge secure">MOST SECURE</span>
+                    <h3>🔑🔐👆 3 Factors = KNOW + HAVE + ARE</h3>
+                    <p>Password + Physical Key + Your Body</p>
+                </div>
+
+                <div class="content-section">
+                    <p><strong>How it works:</strong></p>
+                    <ol>
+                        <li><strong>Something You KNOW:</strong> Your password</li>
+                        <li><strong>Something You HAVE:</strong> A physical key (like a YubiKey) or your phone</li>
+                        <li><strong>Something You ARE:</strong> Your fingerprint or Face ID</li>
+                    </ol>
+                </div>
+
+                <div style="background: rgba(6, 167, 125, 0.1); border: 2px solid #06a77d; padding: 1.5rem; margin: 1.5rem 0; border-radius: 8px;">
+                    <h4 style="color: #06a77d; margin-bottom: 1rem;">Why 3FA Works Against AI:</h4>
+                    <ul>
+                        <li><strong>Can't clone your fingerprint</strong> - AI can't fake your actual body</li>
+                        <li><strong>Physical key is hard to steal</strong> - YubiKey stays with you, can't be hacked remotely</li>
+                        <li><strong>Three layers</strong> - Even if AI breaks one, it needs all three</li>
+                        <li><strong>No phone number to steal</strong> - Physical keys don't use SIM cards</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <p><strong>What's a YubiKey?</strong> It's a small USB device (or NFC key) that you plug into your computer or tap on your phone. When you log in, you touch it. It's like a physical key for your digital life.</p>
+                </div>
+            </div>
+
+            <!-- Page 7: The Chain -->
+            <div class="page-section">
+                <h2 class="section-title">Every Link Must Be Strong</h2>
+                
+                <div class="content-section">
+                    <p>Think of your security like a chain. A chain is only as strong as its weakest link.</p>
+                    
+                    <div class="chain-diagram">
+                        <div class="chain-link">
+                            <div class="link-icon">🔑</div>
+                            <div class="link-label">Password</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="chain-link">
+                            <div class="link-icon">📱</div>
+                            <div class="link-label">Phone/Key</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="chain-link">
+                            <div class="link-icon">👆</div>
+                            <div class="link-label">Biometric</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vulnerability-list">
+                    <h4>What Happens When One Link Breaks:</h4>
+                    <ul>
+                        <li><strong>Weak password</strong> → AI guesses it → Gets past factor 1</li>
+                        <li><strong>SMS 2FA</strong> → SIM swap → Gets past factor 2</li>
+                        <li><strong>No biometric</strong> → If they get password + phone, they're in</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <strong>⚠️ The Scary Combo:</strong>
+                    <p><strong>SIM Swapping + Voice Cloning = Disaster</strong></p>
+                    <p>Here's how it works:</p>
+                    <ol>
+                        <li>AI clones your voice from social media videos</li>
+                        <li>Hacker calls your phone company using your cloned voice</li>
+                        <li>They convince the company to transfer your number to their phone</li>
+                        <li>Now they get all your SMS codes</li>
+                        <li>They log into everything</li>
+                    </ol>
+                    <p style="margin-top: 1rem;"><strong>This is why you need 3FA.</strong> Even if they steal your phone number, they still need your fingerprint or physical key.</p>
+                </div>
+            </div>
+
+            <!-- Page 8: What You Should Do -->
+            <div class="page-section">
+                <h2 class="section-title">What You Should Do</h2>
+                
+                <div class="content-section">
+                    <h3 style="color: #ff6b35; margin-top: 1rem; margin-bottom: 0.5rem;">✅ Start Here:</h3>
+                    <ol>
+                        <li><strong>Use a password manager</strong> - Makes strong, unique passwords for every account</li>
+                        <li><strong>Enable 2FA</strong> - Use an authenticator app (not SMS) when possible</li>
+                        <li><strong>Use biometrics</strong> - Enable fingerprint or Face ID on your phone</li>
+                    </ol>
+
+                    <h3 style="color: #ff6b35; margin-top: 2rem; margin-bottom: 0.5rem;">🔐 Level Up:</h3>
+                    <ol>
+                        <li><strong>Get a YubiKey</strong> - Physical key for your most important accounts</li>
+                        <li><strong>Use 3FA when available</strong> - Password + YubiKey + Fingerprint</li>
+                        <li><strong>Protect your phone number</strong> - Use a PIN with your phone company to prevent SIM swaps</li>
+                    </ol>
+                </div>
+
+                <div style="background: rgba(6, 167, 125, 0.1); border: 2px solid #06a77d; padding: 1.5rem; margin: 2rem 0; border-radius: 8px;">
+                    <h4 style="color: #06a77d; margin-bottom: 1rem;">Remember:</h4>
+                    <p style="font-size: 1.1rem;"><strong>1FA = Pre-Internet Security</strong> (Not safe anymore)</p>
+                    <p style="font-size: 1.1rem;"><strong>2FA = Post-Internet Security</strong> (Better, but AI can break it)</p>
+                    <p style="font-size: 1.1rem;"><strong>3FA = Post-AI Security</strong> (The strongest protection)</p>
+                </div>
+
+                <div class="warning-box" style="margin-top: 2rem;">
+                    <strong>⚠️ The Bottom Line:</strong>
+                    <p>AI is making old security methods weak. You need stronger locks. Start with 2FA, but aim for 3FA on your most important accounts (email, banking, school accounts).</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+
