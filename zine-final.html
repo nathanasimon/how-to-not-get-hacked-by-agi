@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Locks - The Real Story</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: 8.5in 11in;
+            margin: 0.5in;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: white;
+            color: #1a1a1a;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+        }
+
+        .page {
+            width: 7.5in;
+            min-height: 10in;
+            padding: 0.75in;
+            page-break-after: always;
+            background: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cover-page {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: white;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border: none;
+        }
+
+        .cover-title {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+        }
+
+        .cover-subtitle {
+            font-size: 1.8rem;
+            font-weight: 300;
+            opacity: 0.8;
+            margin-top: 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #000;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .content-section {
+            flex: 1;
+        }
+
+        .content-section p {
+            margin-bottom: 1.2rem;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .quote-box {
+            background: #f5f5f5;
+            border-left: 4px solid #000;
+            padding: 2rem;
+            margin: 2rem 0;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #000;
+        }
+
+        .story-box {
+            background: #fff5f5;
+            border: 2px solid #ff3b30;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .story-box h3 {
+            color: #ff3b30;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .story-box .story-meta {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .story-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .visual-diagram {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .factor-box {
+            background: #fafafa;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .factor-icon {
+            font-size: 3rem;
+            flex-shrink: 0;
+        }
+
+        .factor-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .comparison-card {
+            background: #fafafa;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 3px solid transparent;
+        }
+
+        .comparison-card.insecure {
+            border-color: #ff3b30;
+        }
+
+        .comparison-card.warning {
+            border-color: #ff9500;
+        }
+
+        .comparison-card.secure {
+            border-color: #34c759;
+        }
+
+        .comparison-number {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-status {
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-status.insecure {
+            background: #ff3b30;
+            color: white;
+        }
+
+        .comparison-status.warning {
+            background: #ff9500;
+            color: white;
+        }
+
+        .comparison-status.secure {
+            background: #34c759;
+            color: white;
+        }
+
+        .metaphor-box {
+            background: #e8f5e9;
+            border-left: 4px solid #34c759;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .metaphor-box strong {
+            color: #34c759;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .call-to-action {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .call-to-action h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .call-to-action p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .big-number {
+            font-size: 6rem;
+            font-weight: 300;
+            color: #000;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .timeline {
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            padding: 1.5rem;
+            border-left: 3px solid #000;
+            margin-bottom: 2rem;
+            margin-left: 1rem;
+        }
+
+        .timeline-year {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-description {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .simple-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 1rem;
+        }
+
+        @media print {
+            .page {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cover -->
+    <div class="page cover-page">
+        <div class="big-number" style="color: white; opacity: 0.3;">3</div>
+        <h1 class="cover-title">Three Locks</h1>
+        <p class="cover-subtitle">Real stories. Real threats. Real protection.</p>
+    </div>
+
+    <!-- Page 1: The Wake-Up Call -->
+    <div class="page">
+        <div class="content-section">
+            <h2 class="section-title">Here's what happened.</h2>
+            <p class="section-subtitle">Real people. Real attacks. Right now.</p>
+
+            <div class="story-box">
+                <h3>The $25 Million Phone Call</h3>
+                <div class="story-meta">2025 - Hong Kong</div>
+                <p>A company executive gets a call. It's the CFO's voice. "Transfer $25 million immediately. It's urgent."</p>
+                <p style="margin-top: 1rem;">The voice was perfect. The urgency was real. The money was gone.</p>
+                <p style="margin-top: 1rem;"><strong>It wasn't the CFO.</strong> It was AI. Voice cloning from a few video calls. That's all it took.</p>
+            </div>
+
+            <div class="metaphor-box">
+                <strong>Think of it like this:</strong>
+                <p>Someone recorded your voice saying "hello" a few times. Now they can make you say anything. Your voice. Their words.</p>
+            </div>
+
+            <div class="quote-box">
+                "The wolf in sheep's clothing isn't a story anymore. It's code. And it's working."
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 2: More Real Stories -->
+    <div class="page">
+        <div class="content-section">
+            <h2 class="section-title">This isn't science fiction.</h2>
+            <p class="section-subtitle">These happened. Last year. Last month. Right now.</p>
+
+            <div class="story-box">
+                <h3>The YouTube Impersonation</h3>
+                <div class="story-meta">2021 - Ozy Media</div>
+                <p>A company executive used AI to clone a YouTube leader's voice. Called Goldman Sachs. Asked for $40 million.</p>
+                <p style="margin-top: 1rem;">They almost got it. The voice was that convincing.</p>
+            </div>
+
+            <div class="story-box">
+                <h3>The 300 Restaurants</h3>
+                <div class="story-meta">2023 - Yum! Brands (KFC, Pizza Hut)</div>
+                <p>AI-powered ransomware hit fast-food chains. 300 restaurants in the UK closed for weeks.</p>
+                <p style="margin-top: 1rem;">No cash registers. No orders. No business. All because AI found one weak spot.</p>
+            </div>
+
+            <div class="story-box">
+                <h3>The 37 Million People</h3>
+                <div class="story-meta">2022-2024 - T-Mobile</div>
+                <p>37 million customer records stolen. Names, addresses, phone numbers. All of it.</p>
+                <p style="margin-top: 1rem;">AI tools made it possible. Made it fast. Made it massive.</p>
+            </div>
+
+            <div class="metaphor-box">
+                <strong>Here's the thing:</strong>
+                <p>It used to take a master thief to rob a bank. Now? AI can try millions of keys per second. It never sleeps. It never gives up.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3: The Three Ways -->
+    <div class="page">
+        <div class="content-section">
+            <h2 class="section-title">There are three ways to prove you're you.</h2>
+            <p class="section-subtitle">That's it. Just three.</p>
+
+            <div class="factor-box">
+                <div class="factor-icon">🔑</div>
+                <div class="factor-content">
+                    <h3>Something You Know</h3>
+                    <p>A password. A PIN. Something in your head.</p>
+                </div>
+            </div>
+
+            <div class="factor-box">
+                <div class="factor-icon">📱</div>
+                <div class="factor-content">
+                    <h3>Something You Have</h3>
+                    <p>Your phone. A physical key. Something in your pocket.</p>
+                </div>
+            </div>
+
+            <div class="factor-box">
+                <div class="factor-icon">👆</div>
+                <div class="factor-content">
+                    <h3>Something You Are</h3>
+                    <p>Your fingerprint. Your face. Something that IS you.</p>
+                </div>
+            </div>
+
+            <div class="visual-diagram">
+                KNOW → HAVE → ARE
+            </div>
+
+            <p style="font-size: 1.2rem; font-weight: 600; margin-top: 2rem; text-align: center;">Every lock uses one, two, or all three of these.</p>
+        </div>
+    </div>
+
+    <!-- Page 4: 1FA - The Broken Lock -->
+    <div class="page">
+        <div class="content-section">
+            <div class="comparison-grid">
+                <div class="comparison-card insecure">
+                    <div class="comparison-number">1</div>
+                    <div class="comparison-label">One Lock</div>
+                    <div class="comparison-status insecure">BROKEN</div>
+                    <p style="font-size: 0.95rem; color: #666; margin-top: 1rem;">Just a password</p>
+                </div>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 2rem;">This used to work.</h2>
+            <p class="section-subtitle">Before the internet. Before AI.</p>
+
+            <div class="story-box">
+                <h3>How AI Breaks It</h3>
+                <p>AI learns from billions of leaked passwords. It knows you use your pet's name. Your birthday. Your favorite team.</p>
+                <p style="margin-top: 1rem;">It tries millions of combinations per second. Never gets tired. Never gives up.</p>
+            </div>
+
+            <div class="metaphor-box">
+                <strong>It's like this:</strong>
+                <p>Imagine a lock picker who never sleeps, never eats, and has studied every lock ever made. That's AI with passwords.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">Before Internet</div>
+                    <div class="timeline-description"><strong>1FA</strong> - One password. Simple times.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">Now</div>
+                    <div class="timeline-description">AI breaks passwords in seconds. One lock isn't enough.</div>
+                </div>
+            </div>
+
+            <p style="font-size: 1.2rem; font-weight: 600; margin-top: 2rem; color: #ff3b30; text-align: center;">One lock? That's not security. That's hope.</p>
+        </div>
+    </div>
+
+    <!-- Page 5: 2FA - The Cracked Lock -->
+    <div class="page">
+        <div class="content-section">
+            <div class="comparison-grid">
+                <div class="comparison-card warning">
+                    <div class="comparison-number">2</div>
+                    <div class="comparison-label">Two Locks</div>
+                    <div class="comparison-status warning">CRACKED</div>
+                    <p style="font-size: 0.95rem; color: #666; margin-top: 1rem;">Password + Phone</p>
+                </div>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 2rem;">This was the answer.</h2>
+            <p class="section-subtitle">For the internet age. But AI changed the game.</p>
+
+            <div class="story-box">
+                <h3>The SIM Swap Attack</h3>
+                <p>Here's how it works:</p>
+                <p style="margin-top: 1rem;">1. AI clones your voice from TikTok videos</p>
+                <p>2. Hacker calls your phone company</p>
+                <p>3. They sound exactly like you</p>
+                <p>4. Company transfers your number to their phone</p>
+                <p>5. They get all your SMS codes</p>
+                <p>6. They're in. Everything.</p>
+            </div>
+
+            <div class="metaphor-box">
+                <strong>Think of it like this:</strong>
+                <p>Someone steals your house key AND convinces the locksmith you asked them to make a copy. That's SIM swapping with voice cloning.</p>
+            </div>
+
+            <div class="quote-box" style="border-color: #ff9500;">
+                "Two locks worked. Until AI learned how to pick the second one."
+            </div>
+
+            <p style="font-size: 1.2rem; font-weight: 600; margin-top: 2rem; color: #ff9500; text-align: center;">Two locks? Better. But not enough. Not anymore.</p>
+        </div>
+    </div>
+
+    <!-- Page 6: 3FA - The Real Lock -->
+    <div class="page">
+        <div class="content-section">
+            <div class="comparison-grid">
+                <div class="comparison-card secure">
+                    <div class="comparison-number">3</div>
+                    <div class="comparison-label">Three Locks</div>
+                    <div class="comparison-status secure">SECURE</div>
+                    <p style="font-size: 0.95rem; color: #666; margin-top: 1rem;">Password + Key + You</p>
+                </div>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 2rem;">This is the answer.</h2>
+            <p class="section-subtitle">For the AI age.</p>
+
+            <div class="factor-box" style="background: #e8f5e9;">
+                <div class="factor-icon">🔑</div>
+                <div class="factor-content">
+                    <h3>Something You Know</h3>
+                    <p>Your password</p>
+                </div>
+            </div>
+
+            <div class="factor-box" style="background: #e3f2fd;">
+                <div class="factor-icon">🔐</div>
+                <div class="factor-content">
+                    <h3>Something You Have</h3>
+                    <p>A YubiKey. A physical key you touch. Can't be hacked remotely. Can't be cloned.</p>
+                </div>
+            </div>
+
+            <div class="factor-box" style="background: #fff3e0;">
+                <div class="factor-icon">👆</div>
+                <div class="factor-content">
+                    <h3>Something You Are</h3>
+                    <p>Your fingerprint. Your face. AI can't fake your actual body.</p>
+                </div>
+            </div>
+
+            <div class="metaphor-box" style="background: #e8f5e9; border-color: #34c759;">
+                <strong>Why This Works:</strong>
+                <p>Even if AI steals your password. Even if they steal your phone number. They still need your fingerprint. They still need your physical key.</p>
+                <p style="margin-top: 1rem;">AI can't clone your body. AI can't hack a physical object in your pocket.</p>
+            </div>
+
+            <div class="quote-box" style="background: #e8f5e9; border-color: #34c759;">
+                "Three locks. All strong. That's the only way to stay safe in the AI age."
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 7: The Chain -->
+    <div class="page">
+        <div class="content-section">
+            <h2 class="section-title">Every link matters.</h2>
+            <p class="section-subtitle">A chain is only as strong as its weakest link.</p>
+
+            <div class="visual-diagram">
+                🔑 Password → 📱 Phone/Key → 👆 Biometric
+            </div>
+
+            <div class="story-box">
+                <h3>What Happens When One Link Breaks</h3>
+                <p><strong>Weak password?</strong> AI guesses it. Chain broken.</p>
+                <p style="margin-top: 1rem;"><strong>SMS 2FA?</strong> SIM swap breaks it. Chain broken.</p>
+                <p style="margin-top: 1rem;"><strong>No biometric?</strong> They only need two things. Chain broken.</p>
+            </div>
+
+            <div class="metaphor-box">
+                <strong>It's like a three-link chain:</strong>
+                <p>If one link is weak, the whole chain breaks. If one lock is weak, your whole security breaks.</p>
+            </div>
+
+            <div class="story-box" style="background: #fff5f5; border-color: #ff3b30;">
+                <h3>The Scary Combo</h3>
+                <p><strong>SIM Swap + Voice Cloning = Disaster</strong></p>
+                <p style="margin-top: 1rem;">This is what happened to that $25 million company. Voice cloning got them past the phone company. SIM swap got them the codes. Weak password got them in.</p>
+                <p style="margin-top: 1rem;">Three weak links. One attack. Everything gone.</p>
+            </div>
+
+            <p style="font-size: 1.2rem; font-weight: 600; margin-top: 2rem; text-align: center;">Three locks. All strong. That's the only way.</p>
+        </div>
+    </div>
+
+    <!-- Page 8: What To Do -->
+    <div class="page">
+        <div class="content-section">
+            <h2 class="section-title">So what do you do?</h2>
+            <p class="section-subtitle">Start simple. Build from there.</p>
+
+            <div class="call-to-action">
+                <h3>Start Here</h3>
+                <p style="font-size: 1.3rem; margin-top: 1rem;">1. Use a password manager</p>
+                <p style="font-size: 1.3rem;">2. Enable 2FA (authenticator app, not SMS)</p>
+                <p style="font-size: 1.3rem;">3. Use biometrics on your phone</p>
+            </div>
+
+            <div class="call-to-action" style="background: linear-gradient(135deg, #34c759 0%, #30d158 100%); margin-top: 2rem;">
+                <h3>Level Up</h3>
+                <p style="font-size: 1.3rem; margin-top: 1rem;">1. Get a YubiKey</p>
+                <p style="font-size: 1.3rem;">2. Enable 3FA on important accounts</p>
+                <p style="font-size: 1.3rem;">3. Protect your phone number with a PIN</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">Pre-Internet</div>
+                    <div class="timeline-description"><strong>1FA</strong> - One password. Simple times.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">Internet Age</div>
+                    <div class="timeline-description"><strong>2FA</strong> - Password + phone. This was the answer.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">AI Age</div>
+                    <div class="timeline-description"><strong>3FA</strong> - Password + key + you. This is the answer.</div>
+                </div>
+            </div>
+
+            <div class="quote-box" style="background: #000; color: white; border-color: white;">
+                <p style="font-size: 1.4rem; font-weight: 300;">"The threat is real. The time is now. But you're not powerless."</p>
+            </div>
+
+            <p style="font-size: 1.2rem; margin-top: 2rem; text-align: center;">
+                <strong>1FA = Pre-Internet</strong><br>
+                <strong>2FA = Post-Internet</strong><br>
+                <strong>3FA = Post-AI</strong>
+            </p>
+
+            <p style="font-size: 1.1rem; margin-top: 2rem; text-align: center; color: #666;">
+                Start with 2FA. Aim for 3FA. Your digital life depends on it.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+
