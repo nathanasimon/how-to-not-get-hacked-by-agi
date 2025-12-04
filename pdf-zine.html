@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Not Get Hacked by AGI - PDF Zine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ff6b35;
+            --secondary: #004e89;
+            --dark: #1a1a1a;
+            --light: #f5f5f5;
+            --accent: #00d4ff;
+            --warning: #ffd23f;
+            --success: #06a77d;
+        }
+
+        @page {
+            size: 8.5in 11in;
+            margin: 0.5in;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: white;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+        }
+
+        .page {
+            width: 7.5in;
+            min-height: 10in;
+            padding: 0.75in;
+            page-break-after: always;
+            background: white;
+            border: 2px solid var(--primary);
+        }
+
+        .cover-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            color: white;
+            border: none;
+        }
+
+        .cover-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .cover-title-accent {
+            color: var(--primary);
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .cover-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .cover-warning {
+            background: rgba(255, 107, 53, 0.2);
+            border: 2px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            border-bottom: 4px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section {
+            margin-bottom: 2rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .attack-box {
+            background: rgba(0, 78, 137, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .attack-box h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .protection-card {
+            background: rgba(255, 107, 53, 0.05);
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .protection-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+
+        .protection-card .priority {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .protection-card ul {
+            margin-left: 1.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .protection-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        .checklist {
+            background: rgba(6, 167, 125, 0.1);
+            border: 2px solid var(--success);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .checklist h3 {
+            color: var(--success);
+            margin-bottom: 1rem;
+        }
+
+        .checklist-item {
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+        }
+
+        .warning-box {
+            background: rgba(255, 210, 63, 0.2);
+            border: 2px solid var(--warning);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .warning-box strong {
+            color: var(--warning);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .resources {
+            margin-top: 2rem;
+        }
+
+        .resources h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .resources ul {
+            list-style: none;
+        }
+
+        .resources li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .resources li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        @media print {
+            .page {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cover Page -->
+    <div class="page cover-page">
+        <h1 class="cover-title">HOW TO NOT GET</h1>
+        <h1 class="cover-title-accent">HACKED BY AGI</h1>
+        <p class="cover-subtitle">A guide to protecting yourself in the age of AI-powered cyberattacks</p>
+        <div class="cover-warning">
+            <p style="font-size: 1.2rem; font-weight: 600;">⚠️ The threat is real. The time is now.</p>
+        </div>
+    </div>
+
+    <!-- Page 2: Introduction -->
+    <div class="page">
+        <h2 class="section-title">AI Hackers Are Dangerous</h2>
+        <div class="content-section">
+            <p>The cybersecurity landscape is fundamentally changing. AI-powered hacking tools are democratizing sophisticated cyberattacks, making them accessible to anyone with an internet connection and a subscription to an AI service.</p>
+            
+            <p>Tools like Claude Code and other autonomous AI systems can now independently execute complex technical tasks that previously required years of human expertise. This isn't science fiction—it's happening right now.</p>
+            
+            <p><strong>What makes AI hackers particularly dangerous:</strong></p>
+            <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                <li>Work 24/7 without fatigue</li>
+                <li>Scale attacks across thousands of targets simultaneously</li>
+                <li>Learn and adapt from each attempt</li>
+                <li>Generate convincing phishing content in any language</li>
+                <li>Automate vulnerability discovery and exploitation</li>
+            </ul>
+            
+            <p style="margin-top: 1.5rem;">The barrier to entry for sophisticated cyberattacks has collapsed. We need to act now.</p>
+        </div>
+    </div>
+
+    <!-- Page 3: How You Will Be Hacked -->
+    <div class="page">
+        <h2 class="section-title">How You Will Be Hacked</h2>
+        
+        <div class="attack-box">
+            <h3>📧 AI-Powered Phishing</h3>
+            <p>Modern AI can craft phishing emails that are nearly indistinguishable from legitimate communications. It analyzes your social media, writing style, and relationships to create highly targeted attacks.</p>
+            <p><strong>Example:</strong> An AI scrapes your LinkedIn, identifies your boss's name, and generates an email that perfectly mimics their writing style, asking you to click a link or download an attachment.</p>
+        </div>
+
+        <div class="attack-box">
+            <h3>🔍 Automated Vulnerability Discovery</h3>
+            <p>AI systems can now read code, understand architecture, and identify security vulnerabilities faster than human security researchers. They can analyze entire codebases in minutes.</p>
+            <p><strong>Example:</strong> An attacker uses AI to scan thousands of websites for common vulnerabilities like SQL injection or cross-site scripting, then automatically exploits them.</p>
+        </div>
+
+        <div class="attack-box">
+            <h3>🎭 Social Engineering at Scale</h3>
+            <p>AI chatbots can maintain conversations, build relationships, and extract sensitive information over time. They never get tired, never slip up, and can manage thousands of targets simultaneously.</p>
+        </div>
+    </div>
+
+    <!-- Page 4: More Attack Methods -->
+    <div class="page">
+        <div class="attack-box">
+            <h3>🔐 Intelligent Password Cracking</h3>
+            <p>AI analyzes leaked password databases, personal information from data breaches, and social media to predict likely passwords. It understands patterns humans use when creating passwords.</p>
+            <p><strong>Example:</strong> An AI combines your birthday (from a data breach), your pet's name (from Instagram), and common password patterns to generate likely password combinations.</p>
+        </div>
+
+        <div class="attack-box">
+            <h3>🎤 Deepfake & Voice Cloning</h3>
+            <p>AI can clone voices and create realistic video deepfakes. Attackers use these to impersonate trusted individuals in video calls or phone conversations.</p>
+            <p><strong>Example:</strong> An AI clones your boss's voice from a public video, calls you asking for urgent access to a system, and you comply because it sounds exactly like them.</p>
+        </div>
+
+        <div class="warning-box">
+            <strong>The Key Difference:</strong>
+            <p>These attacks used to require skilled hackers and significant time. Now, anyone with AI access can execute sophisticated attacks in minutes. The democratization of hacking capabilities is the real threat.</p>
+        </div>
+    </div>
+
+    <!-- Page 5: Protection Guide - Critical -->
+    <div class="page">
+        <h2 class="section-title">How to Protect Yourself</h2>
+        <p style="margin-bottom: 1.5rem;">These practical steps will significantly reduce your risk. Start with the critical priority items—they provide the most protection with the least effort.</p>
+
+        <div class="protection-card">
+            <div class="priority">CRITICAL PRIORITY</div>
+            <h3>🔑 Use Strong, Unique Passwords</h3>
+            <p><strong>Quick Tip:</strong> Use a password manager</p>
+            <p>Never reuse passwords across accounts. Use a password manager like Bitwarden, 1Password, or LastPass to generate and store unique, complex passwords for each account.</p>
+            <p><strong>Why it matters:</strong> If one account is breached, AI can't use that password to access your other accounts.</p>
+            <p><strong>Action Steps:</strong></p>
+            <ul>
+                <li>Download a reputable password manager</li>
+                <li>Generate a strong master password (write it down securely)</li>
+                <li>Import or create passwords for all your accounts</li>
+                <li>Enable two-factor authentication on your password manager</li>
+            </ul>
+        </div>
+
+        <div class="protection-card">
+            <div class="priority">CRITICAL PRIORITY</div>
+            <h3>🛡️ Enable Two-Factor Authentication</h3>
+            <p><strong>Quick Tip:</strong> Use an authenticator app, not SMS</p>
+            <p>Two-factor authentication (2FA) adds a second layer of security. Even if an AI cracks your password, it can't access your account without the second factor.</p>
+            <p><strong>Action Steps:</strong></p>
+            <ul>
+                <li>Install an authenticator app on your phone</li>
+                <li>Enable 2FA on email, banking, social media, and work accounts</li>
+                <li>Save backup codes in your password manager</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Page 6: Protection Guide - High Priority -->
+    <div class="page">
+        <div class="protection-card">
+            <div class="priority" style="color: var(--warning);">HIGH PRIORITY</div>
+            <h3>👁️ Verify Before You Click</h3>
+            <p><strong>Quick Tip:</strong> Check sender email addresses carefully</p>
+            <p>AI-generated phishing emails are getting more convincing. Always verify the sender's email address, not just the display name. Look for subtle misspellings or unusual domains.</p>
+            <p><strong>Action Steps:</strong></p>
+            <ul>
+                <li>Check the full email address, not just the name</li>
+                <li>Hover over links to see real URLs before clicking</li>
+                <li>Be suspicious of urgent requests, especially about money</li>
+                <li>When in doubt, contact the sender through a different channel</li>
+            </ul>
+        </div>
+
+        <div class="protection-card">
+            <div class="priority" style="color: var(--warning);">HIGH PRIORITY</div>
+            <h3>🔄 Keep Software Updated</h3>
+            <p><strong>Quick Tip:</strong> Enable automatic updates</p>
+            <p>Software updates often include security patches for newly discovered vulnerabilities. AI-powered attacks exploit known vulnerabilities, so keeping software updated closes those attack vectors.</p>
+            <p><strong>Action Steps:</strong></p>
+            <ul>
+                <li>Enable automatic updates on your devices</li>
+                <li>Update your operating system regularly</li>
+                <li>Keep browsers and plugins updated</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Page 7: Protection Guide - Medium Priority -->
+    <div class="page">
+        <div class="protection-card">
+            <div class="priority" style="color: var(--accent);">MEDIUM PRIORITY</div>
+            <h3>🔒 Limit Public Information</h3>
+            <p><strong>Quick Tip:</strong> Review your social media privacy settings</p>
+            <p>AI uses publicly available information to craft targeted attacks. The less information available about you online, the harder it is for AI to create convincing phishing attempts or guess your passwords.</p>
+            <p><strong>Action Steps:</strong></p>
+            <ul>
+                <li>Review and tighten privacy settings on social media</li>
+                <li>Remove personal information from public profiles</li>
+                <li>Be cautious about sharing location, birthday, pet names</li>
+            </ul>
+        </div>
+
+        <div class="protection-card">
+            <div class="priority" style="color: var(--accent);">MEDIUM PRIORITY</div>
+            <h3>💾 Back Up Your Data</h3>
+            <p><strong>Quick Tip:</strong> Use the 3-2-1 rule</p>
+            <p>Regular backups protect you from ransomware and data loss. Follow the 3-2-1 rule: 3 copies of your data, 2 different media types, 1 copy offsite.</p>
+            <p><strong>Action Steps:</strong></p>
+            <ul>
+                <li>Set up automatic cloud backups</li>
+                <li>Use an external hard drive for local backups</li>
+                <li>Test your backups to ensure they work</li>
+            </ul>
+        </div>
+
+        <div class="protection-card">
+            <div class="priority" style="color: var(--accent);">MEDIUM PRIORITY</div>
+            <h3>👀 Monitor Your Accounts</h3>
+            <p><strong>Quick Tip:</strong> Check bank statements and credit reports regularly</p>
+            <p>Regular monitoring helps you catch unauthorized access early. Check bank and credit card statements monthly. Use free credit monitoring services to watch for suspicious activity.</p>
+        </div>
+    </div>
+
+    <!-- Page 8: Quick Reference & Resources -->
+    <div class="page footer-page">
+        <div>
+            <h2 class="section-title">Quick Start Checklist</h2>
+            <div class="checklist">
+                <div class="checklist-item">☐ Use Strong, Unique Passwords (Password Manager)</div>
+                <div class="checklist-item">☐ Enable Two-Factor Authentication</div>
+                <div class="checklist-item">☐ Verify Before You Click (Check Email Addresses)</div>
+                <div class="checklist-item">☐ Keep Software Updated</div>
+            </div>
+            <p style="margin-top: 1.5rem;"><strong>Complete these critical items first.</strong> They provide the most protection against AI-powered attacks. Then work through the high and medium priority items as time allows.</p>
+        </div>
+
+        <div class="resources">
+            <h3>Resources</h3>
+            <ul>
+                <li>Electronic Frontier Foundation - Privacy Guides</li>
+                <li>Krebs on Security</li>
+                <li>Have I Been Pwned - Check if your email was breached</li>
+                <li>Bitwarden - Free Password Manager</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 2rem; padding-top: 1rem; border-top: 2px solid var(--primary);">
+            <p style="text-align: center; font-weight: 600; color: var(--primary);">⚠️ The threat is real. The time is now.</p>
+            <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem;">Remember: AI-powered attacks are real and happening now. But you're not powerless. Start with the critical items and build from there.</p>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Reference Card - How to Not Get Hacked by AGI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: 8.5in 11in;
+            margin: 0.25in;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: white;
+            color: #1a1a1a;
+        }
+
+        .card {
+            width: 4in;
+            height: 6in;
+            border: 3px solid #ff6b35;
+            padding: 0.5in;
+            page-break-after: always;
+            background: white;
+        }
+
+        .card-front {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-back {
+            font-size: 0.7rem;
+        }
+
+        .card-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ff6b35;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid #ff6b35;
+            padding-bottom: 0.25rem;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            text-align: center;
+            margin: 0.5rem 0;
+        }
+
+        .card-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .quick-tip {
+            background: rgba(255, 107, 53, 0.1);
+            padding: 0.5rem;
+            border-left: 3px solid #ff6b35;
+            margin: 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .action-list {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+
+        .action-list li {
+            margin-bottom: 0.4rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .action-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #06a77d;
+            font-weight: 700;
+        }
+
+        .priority-badge {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            background: #ff6b35;
+            color: white;
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5in;
+            width: 8.5in;
+            margin: 0 auto;
+        }
+
+        @media print {
+            .card {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <!-- Card 1: Password Manager -->
+        <div class="card card-front">
+            <div>
+                <div class="priority-badge">CRITICAL</div>
+                <div class="card-title">🔑 Strong Passwords</div>
+            </div>
+            <div class="card-content">
+                <div class="quick-tip">Use a password manager</div>
+                <ul class="action-list">
+                    <li>Download Bitwarden or 1Password</li>
+                    <li>Generate unique passwords for each account</li>
+                    <li>Never reuse passwords</li>
+                    <li>Enable 2FA on password manager</li>
+                </ul>
+            </div>
+            <div style="font-size: 0.6rem; color: #666; text-align: center;">
+                Flip for more →
+            </div>
+        </div>
+
+        <div class="card card-back">
+            <div class="card-title">Why It Matters</div>
+            <p style="margin-top: 0.5rem; line-height: 1.4;">
+                If one account is breached, AI can't use that password to access your other accounts. Password managers make it easy to have hundreds of unique passwords.
+            </p>
+            <div style="margin-top: 1rem; padding: 0.5rem; background: rgba(0, 212, 255, 0.1); border-left: 3px solid #00d4ff;">
+                <strong>Free Options:</strong> Bitwarden, KeePass
+            </div>
+        </div>
+
+        <!-- Card 2: Two-Factor Authentication -->
+        <div class="card card-front">
+            <div>
+                <div class="priority-badge">CRITICAL</div>
+                <div class="card-title">🛡️ Two-Factor Auth</div>
+            </div>
+            <div class="card-content">
+                <div class="quick-tip">Use an authenticator app, not SMS</div>
+                <ul class="action-list">
+                    <li>Install Google Authenticator or Authy</li>
+                    <li>Enable 2FA on email & banking</li>
+                    <li>Enable 2FA on social media</li>
+                    <li>Save backup codes securely</li>
+                </ul>
+            </div>
+            <div style="font-size: 0.6rem; color: #666; text-align: center;">
+                Flip for more →
+            </div>
+        </div>
+
+        <div class="card card-back">
+            <div class="card-title">Why It Matters</div>
+            <p style="margin-top: 0.5rem; line-height: 1.4;">
+                Even if AI cracks your password, it can't access your account without the second factor. Authenticator apps are more secure than SMS.
+            </p>
+            <div style="margin-top: 1rem; padding: 0.5rem; background: rgba(255, 210, 63, 0.1); border-left: 3px solid #ffd23f;">
+                <strong>Enable on:</strong> Email, Banking, Work accounts, Social media
+            </div>
+        </div>
+
+        <!-- Card 3: Verify Before Clicking -->
+        <div class="card card-front">
+            <div>
+                <div class="priority-badge" style="background: #ffd23f; color: #1a1a1a;">HIGH</div>
+                <div class="card-title">👁️ Verify Emails</div>
+            </div>
+            <div class="card-content">
+                <div class="quick-tip">Check sender email addresses</div>
+                <ul class="action-list">
+                    <li>Check full email, not just name</li>
+                    <li>Hover over links before clicking</li>
+                    <li>Be suspicious of urgent requests</li>
+                    <li>Verify through different channel</li>
+                </ul>
+            </div>
+            <div style="font-size: 0.6rem; color: #666; text-align: center;">
+                Flip for more →
+            </div>
+        </div>
+
+        <div class="card card-back">
+            <div class="card-title">Why It Matters</div>
+            <p style="margin-top: 0.5rem; line-height: 1.4;">
+                AI-generated phishing emails are getting more convincing. Always verify the sender's email address and hover over links to see real URLs.
+            </p>
+            <div style="margin-top: 1rem; padding: 0.5rem; background: rgba(255, 107, 53, 0.1); border-left: 3px solid #ff6b35;">
+                <strong>Red Flags:</strong> Urgent requests, unusual domains, misspellings
+            </div>
+        </div>
+
+        <!-- Card 4: Keep Updated -->
+        <div class="card card-front">
+            <div>
+                <div class="priority-badge" style="background: #ffd23f; color: #1a1a1a;">HIGH</div>
+                <div class="card-title">🔄 Update Software</div>
+            </div>
+            <div class="card-content">
+                <div class="quick-tip">Enable automatic updates</div>
+                <ul class="action-list">
+                    <li>Update operating system</li>
+                    <li>Update browsers & plugins</li>
+                    <li>Don't ignore update notifications</li>
+                    <li>Enable auto-updates when possible</li>
+                </ul>
+            </div>
+            <div style="font-size: 0.6rem; color: #666; text-align: center;">
+                Flip for more →
+            </div>
+        </div>
+
+        <div class="card card-back">
+            <div class="card-title">Why It Matters</div>
+            <p style="margin-top: 0.5rem; line-height: 1.4;">
+                Software updates include security patches. AI-powered attacks exploit known vulnerabilities, so keeping software updated closes those attack vectors.
+            </p>
+            <div style="margin-top: 1rem; padding: 0.5rem; background: rgba(0, 212, 255, 0.1); border-left: 3px solid #00d4ff;">
+                <strong>Check:</strong> OS, Browser, Plugins, Critical apps
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
