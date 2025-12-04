@@ -1,0 +1,53 @@
+.section-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.section-content {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 107, 53, 0.2);
+  border-radius: 12px;
+  padding: 3rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.section-title {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--primary);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 3px solid var(--primary);
+  padding-bottom: 1rem;
+}
+
+.section-body {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.section-paragraph {
+  margin-bottom: 1.5rem;
+}
+
+.section-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .section-container {
+    padding: 1rem;
+  }
+  
+  .section-content {
+    padding: 2rem 1.5rem;
+  }
+  
+  .section-body {
+    font-size: 1rem;
+  }
+}
