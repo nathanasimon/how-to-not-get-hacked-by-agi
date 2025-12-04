@@ -3,11 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three Locks - The Real Story</title>
+    <title>THREE LOCKS // ASCII PROTOCOL</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=VT323&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg: #ffffff;
+            --fg: #000000;
+            --accent: #000000;
+            --border: 2px solid #000;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -16,827 +23,562 @@
 
         @page {
             size: 8.5in 11in;
-            margin: 0.5in;
+            margin: 0;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: white;
-            color: #1a1a1a;
-            line-height: 1.7;
-        }
-
-        h1, h2, h3 {
             font-family: 'Space Mono', monospace;
-            font-weight: 700;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.4;
+            font-size: 14px;
         }
 
         .page {
-            width: 7.5in;
-            min-height: 10in;
+            width: 8.5in;
+            height: 11in;
             padding: 0.75in;
             page-break-after: always;
-            background: white;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .cover-page {
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-            color: white;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            border: none;
             position: relative;
-        }
-
-        .cover-title {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            font-weight: 300;
-            letter-spacing: -0.02em;
-        }
-
-        .cover-subtitle {
-            font-size: 1.8rem;
-            font-weight: 300;
-            opacity: 0.8;
-            margin-top: 2rem;
-        }
-
-        .big-number {
-            font-size: 8rem;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.15);
-            line-height: 1;
-            margin-bottom: 1rem;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-        }
-
-        .cover-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: #000;
-            margin-bottom: 1rem;
-            font-weight: 300;
-            letter-spacing: -0.02em;
-        }
-
-        .section-subtitle {
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 2rem;
-            font-weight: 400;
-        }
-
-        .content-section {
-            flex: 1;
-        }
-
-        .content-section p {
-            margin-bottom: 1.2rem;
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: #333;
-        }
-
-        .quote-box {
-            background: #f5f5f5;
-            border-left: 4px solid #000;
-            padding: 2rem;
-            margin: 2rem 0;
-            font-size: 1.3rem;
-            font-style: italic;
-            color: #000;
-        }
-
-        .story-box {
-            background: #fff5f5;
-            border: 2px solid #ff3b30;
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 2rem 0;
-        }
-
-        .story-box h3 {
-            color: #ff3b30;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .story-box .story-meta {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .story-box p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .visual-diagram {
-            width: 100%;
-            min-height: 180px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 12px;
-            margin: 2rem 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.4rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            padding: 2rem;
-        }
-
-        .factor-box {
-            background: #fafafa;
-            border: 2px solid #ddd;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .factor-icon {
-            width: 80px;
-            height: 80px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .factor-icon svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        .factor-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 300;
-        }
-
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .comparison-card {
-            background: #fafafa;
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            border: 3px solid transparent;
-        }
-
-        .comparison-card.insecure {
-            border-color: #ff3b30;
-        }
-
-        .comparison-card.warning {
-            border-color: #ff9500;
-        }
-
-        .comparison-card.secure {
-            border-color: #34c759;
-        }
-
-        .comparison-number {
-            font-size: 5rem;
-            font-weight: 300;
-            margin-bottom: 0.5rem;
-            line-height: 1;
-        }
-
-        .comparison-label {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .comparison-status {
-            font-size: 0.9rem;
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 1rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-        }
-
-        .comparison-status.insecure {
-            background: #ff3b30;
-            color: white;
-        }
-
-        .comparison-status.warning {
-            background: #ff9500;
-            color: white;
-        }
-
-        .comparison-status.secure {
-            background: #34c759;
-            color: white;
-        }
-
-        .metaphor-box {
-            background: #e8f5e9;
-            border-left: 4px solid #34c759;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 8px;
-        }
-
-        .metaphor-box strong {
-            color: #34c759;
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .call-to-action {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 3rem;
-            border-radius: 12px;
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        .call-to-action h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 300;
-        }
-
-        .call-to-action p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        .timeline {
-            margin: 2rem 0;
-        }
-
-        .timeline-item {
-            padding: 1.5rem;
-            border-left: 3px solid #000;
-            margin-bottom: 2rem;
-            margin-left: 1rem;
-        }
-
-        .timeline-year {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-description {
-            font-size: 1.1rem;
-            color: #666;
-        }
-
-        .attack-flow {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .attack-step {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: #f5f5f5;
-            border-radius: 8px;
-        }
-
-        .attack-step-number {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #ff3b30;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        .chain-visual {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin: 2rem 0;
-            padding: 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 12px;
-        }
-
-        .chain-link {
-            text-align: center;
-            color: white;
-            flex: 1;
-        }
-
-        .chain-link-label {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-top: 0.5rem;
-        }
-
-        .chain-arrow {
-            color: white;
-            font-size: 1.5rem;
-            margin: 0 1rem;
-            opacity: 0.7;
-        }
-
-        .stat-box {
-            background: #000;
-            color: white;
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 300;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            opacity: 0.8;
+            overflow: hidden;
+            border-bottom: 1px dashed #999; /* For web view separation */
         }
 
         @media print {
             .page {
-                page-break-after: always;
+                border-bottom: none;
             }
+        }
+
+        /* ASCII ART UTILS */
+        pre {
+            font-family: 'Space Mono', monospace;
+            line-height: 1;
+            white-space: pre-wrap;
+            overflow-x: hidden;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .ascii-large {
+            font-size: 12px;
+            letter-spacing: -1px;
+            font-weight: bold;
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* ANIME ELEMENTS */
+        .speed-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 40px,
+                rgba(0,0,0,0.05) 40px,
+                rgba(0,0,0,0.05) 41px
+            );
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .panel {
+            border: 3px solid #000;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 8px 8px 0px #000;
+            background: white;
+            position: relative;
+        }
+
+        .panel-title {
+            background: #000;
+            color: #fff;
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            position: absolute;
+            top: -1rem;
+            left: 1rem;
+            font-family: 'VT323', monospace;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .dialogue-box {
+            border: 2px solid #000;
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .dialogue-box::before {
+            content: "◀";
+            position: absolute;
+            left: -10px;
+            top: 15px;
+            color: #000;
+        }
+
+        .speaker-name {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3 {
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .glitch-text {
+            position: relative;
+            display: inline-block;
+        }
+
+        .big-impact {
+            font-family: 'VT323', monospace;
+            font-size: 4rem;
+            line-height: 0.8;
+            margin: 1rem 0;
+            text-shadow: 4px 4px 0px #ccc;
+        }
+
+        .katakana {
+            font-family: "Hiragino Kaku Gothic Pro", "Meiryo", sans-serif;
+            position: absolute;
+            font-size: 4rem;
+            opacity: 0.2;
+            font-weight: 900;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* COMPONENTS */
+        .terminal-window {
+            border: 2px solid #000;
+            background: #000;
+            color: #fff;
+            padding: 1rem;
+            font-family: 'VT323', monospace;
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        .terminal-header {
+            border-bottom: 1px solid #fff;
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .scanline {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1));
+            background-size: 100% 4px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 99;
+        }
+
+        /* PAGE SPECIFIC */
+        .cover-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .chain-link-ascii {
+            font-size: 0.8rem;
+            line-height: 1;
+        }
+
+        .stat-block {
+            border: 2px solid #000;
+            padding: 0.5rem;
+            text-align: right;
+            font-family: 'VT323';
+            font-size: 2rem;
         }
     </style>
 </head>
 <body>
-    <!-- Cover -->
-    <div class="page cover-page">
-        <div class="big-number">3</div>
-        <div class="cover-content">
-            <h1 class="cover-title">Three Locks</h1>
-            <p class="cover-subtitle">Real stories. Real threats. Real protection.</p>
-        </div>
-    </div>
 
-    <!-- Page 1: The Wake-Up Call -->
+    <!-- COVER PAGE -->
     <div class="page">
-        <div class="content-section">
-            <h2 class="section-title">Here's what happened.</h2>
-            <p class="section-subtitle">Real people. Real attacks. Right now.</p>
+        <div class="speed-lines"></div>
+        <div class="katakana" style="top: 20px; right: 20px;">ゴゴゴ</div>
+        <div class="cover-container">
+            <div style="text-align: left; border-bottom: 4px solid #000; padding-bottom: 1rem;">
+                <div style="font-size: 1.5rem;">SYSTEM: UNSECURE</div>
+                <div style="font-size: 0.8rem;">DATE: 2025 // LOC: NET</div>
+            </div>
 
-            <div class="story-box">
-                <h3>The $25 Million Phone Call</h3>
-                <div class="story-meta">2025 - Hong Kong Financial Firm</div>
+            <div style="margin: 2rem 0;">
+                <pre class="ascii-large">
+  _______  _    _  _____  ______ ______ 
+ |__   __|| |  | ||  __ \|  ____|  ____|
+    | |   | |__| || |__) | |__  | |__   
+    | |   |  __  ||  _  /|  __| |  __|  
+    | |   | |  | || | \ \| |____| |____ 
+    |_|   |_|  |_||_|  \_\______|______|
+ 
+ _      ____   _____  _  __  _____ 
+| |    / __ \ / ____|| |/ / / ____|
+| |   | |  | | |     | ' / | (___  
+| |   | |  | | |     |  <   \___ \ 
+| |___| |__| | |____ | . \  ____) |
+|______\____/ \_____||_|\_\|_____/ 
+                </pre>
                 
-                <div style="width: 100%; height: 200px; background: #f0f0f0; border-radius: 8px; margin: 1rem 0; display: flex; align-items: center; justify-content: center; border: 2px dashed #ccc;">
-                    <div style="text-align: center; color: #999; padding: 1rem;">
-                        <div style="font-size: 0.9rem; margin-bottom: 0.5rem;">[PHOTO: Hong Kong office building / CEO portrait]</div>
-                        <div style="font-size: 0.8rem;">Professional business photo or office building exterior</div>
-                    </div>
+                <div style="margin: 2rem 0;">
+<pre>
+      .---.
+     /     \
+     |  O  |
+     |  |  |
+     |  |  |  < LOCKED >
+     |  |  |
+     \  |  /
+      \___/
+      |   |
+      |   |
+      |___|
+</pre>
                 </div>
-
-                <p>A Hong Kong company executive sits at his desk. His phone rings.</p>
-                <p style="margin-top: 1rem;">It's the CFO's voice. Familiar. Urgent.</p>
-                <p style="margin-top: 1rem;"><strong>"Transfer $25 million immediately. It's confidential. Don't ask questions."</strong></p>
-                <p style="margin-top: 1rem;">The voice was perfect. The tone was right. The urgency was real.</p>
-                <p style="margin-top: 1rem;">He transferred the money.</p>
             </div>
 
-            <div class="quote-box" style="background: #fff5f5; border-color: #ff3b30;">
-                <p style="font-size: 1.4rem; font-weight: 600; color: #ff3b30; margin-bottom: 1rem;">"Who are you?"</p>
-                <p style="font-size: 1.1rem; color: #333;">That's what he asked when he called the real CFO later. The CFO had no idea what he was talking about.</p>
+            <div class="panel" style="text-align: center; background: #000; color: #fff;">
+                <h2 style="margin: 0;">A CYBER-SECURITY ZINE</h2>
+                <p>REAL THREATS // REAL DEFENSE</p>
             </div>
 
-            <div class="story-box" style="background: #000; border-color: #ff3b30; color: white;">
-                <h3 style="color: #ff3b30;">It wasn't the CFO.</h3>
-                <p>It was AI. Voice cloning from a few video calls. That's all it took.</p>
-                <p style="margin-top: 1rem;">The money was gone. $25 million. One phone call.</p>
-            </div>
-
-            <div class="stat-box">
-                <div class="stat-number">$25M</div>
-                <div class="stat-label">Lost in one phone call</div>
-            </div>
-
-            <div class="metaphor-box">
-                <strong>Think of it like this:</strong>
-                <p>Someone recorded your voice saying "hello" a few times. Now they can make you say anything. Your voice. Their words.</p>
-            </div>
-
-            <div class="quote-box">
-                "The wolf in sheep's clothing isn't a story anymore. It's code. And it's working."
+            <div style="text-align: right; font-size: 0.8rem;">
+                [ PRESS START TO PROTECT ]
             </div>
         </div>
+        <div class="scanline"></div>
     </div>
 
-    <!-- Page 2: More Real Stories -->
+    <!-- PAGE 1: THE WAKE UP CALL -->
     <div class="page">
-        <div class="content-section">
-            <h2 class="section-title">This isn't science fiction.</h2>
-            <p class="section-subtitle">These happened. Last year. Last month. Right now.</p>
+        <div class="panel">
+            <div class="panel-title">FILE: CASE_01</div>
+            <h2>THE $25,000,000 CALL</h2>
+            <p>LOCATION: HONG KONG // STATUS: COMPROMISED</p>
+        </div>
 
-            <div class="story-box">
-                <h3>The YouTube Impersonation</h3>
-                <div class="story-meta">2021 - Ozy Media</div>
-                <p>A company executive used AI to clone a YouTube leader's voice. Called Goldman Sachs. Asked for $40 million.</p>
-                <p style="margin-top: 1rem;">They almost got it. The voice was that convincing.</p>
-            </div>
+        <div class="dialogue-box">
+            <span class="speaker-name">EXECUTIVE_01:</span>
+            <p>My phone rang. It was the CFO. I know his voice. I've known him for years.</p>
+        </div>
 
-            <div class="story-box">
-                <h3>The 300 Restaurants</h3>
-                <div class="story-meta">2023 - Yum! Brands (KFC, Pizza Hut)</div>
-                <p>AI-powered ransomware hit fast-food chains. 300 restaurants in the UK closed for weeks.</p>
-                <p style="margin-top: 1rem;">No cash registers. No orders. No business. All because AI found one weak spot.</p>
-            </div>
+        <div class="dialogue-box" style="margin-left: 2rem; border-style: dashed;">
+            <span class="speaker-name">VOICE [AI CLONE]:</span>
+            <p style="font-family: 'VT323'; font-size: 1.4rem;">"TRANSFER THE FUNDS. IMMEDIATELY. DO NOT DISCUSS THIS."</p>
+        </div>
 
-            <div class="story-box">
-                <h3>The 37 Million People</h3>
-                <div class="story-meta">2022-2024 - T-Mobile</div>
-                <p>37 million customer records stolen. Names, addresses, phone numbers. All of it.</p>
-                <p style="margin-top: 1rem;">AI tools made it possible. Made it fast. Made it massive.</p>
-            </div>
+        <pre>
+        / \
+       / ! \  WARNING:
+      /_____\ AUDIO MISMATCH
+        </pre>
 
-            <div class="stat-box">
-                <div class="stat-number">37M</div>
-                <div class="stat-label">People affected by one attack</div>
-            </div>
+        <p style="margin: 1rem 0;">He transferred it. All of it.</p>
 
-            <div class="metaphor-box">
-                <strong>Here's the thing:</strong>
-                <p>It used to take a master thief to rob a bank. Now? AI can try millions of keys per second. It never sleeps. It never gives up.</p>
+        <div class="panel" style="background: #000; color: #fff; margin-top: 2rem;">
+            <h1 class="glitch-text" style="font-size: 3rem; text-align: center;">WHO ARE YOU?</h1>
+            <p style="text-align: center;">That's what he asked the real CFO later.</p>
+        </div>
+
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <span>> ANALYSIS</span>
+                <span>[X]</span>
             </div>
+            <p>> SUBJECT: DEEPFAKE AUDIO</p>
+            <p>> SOURCE: 3 SECONDS OF SAMPLE AUDIO</p>
+            <p>> RESULT: 100% VOICE MATCH</p>
+            <p>> COST: $25 MILLION USD</p>
         </div>
     </div>
 
-    <!-- Page 3: The Three Ways -->
+    <!-- PAGE 2: THE DATABASE -->
     <div class="page">
-        <div class="content-section">
-            <h2 class="section-title">There are three ways to prove you're you.</h2>
-            <p class="section-subtitle">That's it. Just three.</p>
+        <div class="katakana" style="bottom: 50px; left: 20px;">ドーン</div>
+        <h2 style="border-bottom: 4px double #000; margin-bottom: 1rem;">DATABASE // ATTACK_LOGS</h2>
 
-            <div class="factor-box">
-                <div class="factor-icon">
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="30" y="50" width="40" height="40" rx="4" fill="none" stroke="#333" stroke-width="4"/>
-                        <path d="M 30 50 L 30 30 Q 30 20 40 20 L 60 20 Q 70 20 70 30 L 70 50" fill="none" stroke="#333" stroke-width="4"/>
-                        <circle cx="50" cy="70" r="6" fill="#333"/>
-                    </svg>
-                </div>
-                <div class="factor-content">
-                    <h3>Something You Know</h3>
-                    <p>A password. A PIN. Something in your head.</p>
-                </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="panel">
+                <div class="panel-title">2021</div>
+                <h3>OZY MEDIA</h3>
+                <p>>> TARGET: GOLDMAN SACHS</p>
+                <p>>> WEAPON: AI VOICE</p>
+                <p>>> DMG: $40M ATTEMPT</p>
+                <pre>
+ [X] FAILED
+                </pre>
             </div>
 
-            <div class="factor-box">
-                <div class="factor-icon">
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="25" y="20" width="50" height="70" rx="8" fill="none" stroke="#333" stroke-width="4"/>
-                        <rect x="35" y="30" width="30" height="40" rx="2" fill="none" stroke="#333" stroke-width="3"/>
-                        <circle cx="50" cy="80" r="4" fill="#333"/>
-                    </svg>
-                </div>
-                <div class="factor-content">
-                    <h3>Something You Have</h3>
-                    <p>Your phone. A physical key. Something in your pocket.</p>
-                </div>
+            <div class="panel">
+                <div class="panel-title">2023</div>
+                <h3>YUM! BRANDS</h3>
+                <p>>> TARGET: KFC / PIZZA HUT</p>
+                <p>>> WEAPON: RANSOMWARE</p>
+                <p>>> DMG: 300 STORES CLOSED</p>
+                <pre>
+ [!] CRITICAL
+                </pre>
             </div>
+        </div>
 
-            <div class="factor-box">
-                <div class="factor-icon">
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 30 60 Q 30 40 50 40 Q 70 40 70 60 Q 70 80 50 80 Q 30 80 30 60" fill="none" stroke="#333" stroke-width="4"/>
-                        <path d="M 20 50 Q 25 45 30 50 M 70 50 Q 75 45 80 50" fill="none" stroke="#333" stroke-width="3"/>
-                        <path d="M 35 70 Q 40 75 50 75 Q 60 75 65 70" fill="none" stroke="#333" stroke-width="3"/>
-                    </svg>
-                </div>
-                <div class="factor-content">
-                    <h3>Something You Are</h3>
-                    <p>Your fingerprint. Your face. Something that IS you.</p>
-                </div>
-            </div>
+        <div class="panel" style="border: 4px solid #000;">
+            <div class="panel-title">2022-24</div>
+            <h1 style="font-size: 2.5rem;">T-MOBILE</h1>
+            <div class="stat-block">37,000,000 RECORDS STOLEN</div>
+            <p style="margin-top: 1rem;">> AI made it fast.</p>
+            <p>> AI made it massive.</p>
+        </div>
 
-            <div class="visual-diagram">
-                KNOW → HAVE → ARE
-            </div>
-
-            <p style="font-size: 1.2rem; font-weight: 600; margin-top: 2rem; text-align: center;">Every lock uses one, two, or all three of these.</p>
+        <div class="dialogue-box">
+            <span class="speaker-name">NARRATOR:</span>
+            <p>It used to take a master thief to rob a bank. Now? AI tries a million keys a second. It never sleeps.</p>
         </div>
     </div>
 
-    <!-- Page 4: 1FA - The Broken Lock -->
+    <!-- PAGE 3: THE TRIFORCE OF SECURITY -->
     <div class="page">
-        <div class="content-section">
-            <div class="comparison-grid">
-                <div class="comparison-card insecure">
-                    <div class="comparison-number">1</div>
-                    <div class="comparison-label">One Lock</div>
-                    <div class="comparison-status insecure">BROKEN</div>
-                    <p style="font-size: 0.95rem; color: #666; margin-top: 1rem;">Just a password</p>
-                </div>
+        <h1 style="text-align: center; font-size: 3rem;">THE 3 KEYS</h1>
+        <p style="text-align: center; margin-bottom: 2rem;">AUTHENTICATION PROTOCOLS</p>
+
+        <div class="panel" style="display: flex; align-items: center; gap: 1rem;">
+            <div style="font-size: 3rem; width: 60px;">🧠</div>
+            <div>
+                <h3>1. KNOWLEDGE</h3>
+                <p>SOMETHING YOU KNOW (PASSWORD)</p>
             </div>
+        </div>
 
-            <h2 class="section-title" style="margin-top: 2rem;">This used to work.</h2>
-            <p class="section-subtitle">Before the internet. Before AI.</p>
-
-            <div class="story-box">
-                <h3>How AI Breaks It</h3>
-                <p>AI learns from billions of leaked passwords. It knows you use your pet's name. Your birthday. Your favorite team.</p>
-                <p style="margin-top: 1rem;">It tries millions of combinations per second. Never gets tired. Never gives up.</p>
+        <div class="panel" style="display: flex; align-items: center; gap: 1rem;">
+            <div style="font-size: 3rem; width: 60px;">📱</div>
+            <div>
+                <h3>2. POSSESSION</h3>
+                <p>SOMETHING YOU HAVE (KEY/PHONE)</p>
             </div>
+        </div>
 
-            <div class="stat-box">
-                <div class="stat-number">Millions</div>
-                <div class="stat-label">Password attempts per second</div>
+        <div class="panel" style="display: flex; align-items: center; gap: 1rem;">
+            <div style="font-size: 3rem; width: 60px;">👁️</div>
+            <div>
+                <h3>3. INHERENCE</h3>
+                <p>SOMETHING YOU ARE (BIOMETRIC)</p>
             </div>
+        </div>
 
-            <div class="metaphor-box">
-                <strong>It's like this:</strong>
-                <p>Imagine a lock picker who never sleeps, never eats, and has studied every lock ever made. That's AI with passwords.</p>
-            </div>
+        <pre class="ascii-large">
+    [KNOW] ----> [HAVE] ----> [ARE]
+      |            |            |
+    PASS         KEY          FACE
+        </pre>
 
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-year">Before Internet</div>
-                    <div class="timeline-description"><strong>1FA</strong> - One password. Simple times.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">Now</div>
-                    <div class="timeline-description">AI breaks passwords in seconds. One lock isn't enough.</div>
-                </div>
-            </div>
-
-            <p style="font-size: 1.2rem; font-weight: 600; margin-top: 2rem; color: #ff3b30; text-align: center;">One lock? That's not security. That's hope.</p>
+        <div class="terminal-window">
+            <p>> SYSTEM ADVICE:</p>
+            <p>> USE ALL THREE FOR MAXIMUM SHIELD.</p>
         </div>
     </div>
 
-    <!-- Page 5: 2FA - The Cracked Lock -->
+    <!-- PAGE 4: 1FA BROKEN -->
     <div class="page">
-        <div class="content-section">
-            <div class="comparison-grid">
-                <div class="comparison-card warning">
-                    <div class="comparison-number">2</div>
-                    <div class="comparison-label">Two Locks</div>
-                    <div class="comparison-status warning">CRACKED</div>
-                    <p style="font-size: 0.95rem; color: #666; margin-top: 1rem;">Password + Phone</p>
-                </div>
-            </div>
+        <div class="katakana" style="top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 10rem; opacity: 0.1;">ダメ</div>
+        
+        <h1 style="font-size: 4rem; text-align: center; text-decoration: line-through;">1 FACTOR</h1>
+        <h2 style="text-align: center;">STATUS: DESTROYED</h2>
 
-            <h2 class="section-title" style="margin-top: 2rem;">This was the answer.</h2>
-            <p class="section-subtitle">For the internet age. But AI changed the game.</p>
+        <div style="margin: 3rem 0; text-align: center;">
+<pre>
+   .------.
+  /  FAIL  \
+  |  !!!!  |
+  |  !!!!  |   < BROKEN >
+   \      /
+  __\____/__
+ |          |
+ | PASSWORD |
+ |__________|
+</pre>
+        </div>
 
-            <div class="story-box">
-                <h3>The SIM Swap Attack</h3>
-                <p>Here's how it works:</p>
-            </div>
+        <div class="panel">
+            <h3>BRUTE FORCE ATTACK</h3>
+            <p>AI learns your patterns.</p>
+            <p>Birthday? Pet's name? Favorite team?</p>
+            <p><strong>AI GUESSES IT IN SECONDS.</strong></p>
+        </div>
 
-            <div class="attack-flow">
-                <div class="attack-step">
-                    <div class="attack-step-number">1</div>
-                    <div>AI clones your voice from TikTok videos</div>
-                </div>
-                <div class="attack-step">
-                    <div class="attack-step-number">2</div>
-                    <div>Hacker calls your phone company</div>
-                </div>
-                <div class="attack-step">
-                    <div class="attack-step-number">3</div>
-                    <div>They sound exactly like you</div>
-                </div>
-                <div class="attack-step">
-                    <div class="attack-step-number">4</div>
-                    <div>Company transfers your number to their phone</div>
-                </div>
-                <div class="attack-step">
-                    <div class="attack-step-number">5</div>
-                    <div>They get all your SMS codes</div>
-                </div>
-                <div class="attack-step">
-                    <div class="attack-step-number">6</div>
-                    <div>They're in. Everything.</div>
-                </div>
-            </div>
-
-            <div class="metaphor-box">
-                <strong>Think of it like this:</strong>
-                <p>Someone steals your house key AND convinces the locksmith you asked them to make a copy. That's SIM swapping with voice cloning.</p>
-            </div>
-
-            <div class="quote-box" style="border-color: #ff9500;">
-                "Two locks worked. Until AI learned how to pick the second one."
-            </div>
-
-            <p style="font-size: 1.2rem; font-weight: 600; margin-top: 2rem; color: #ff9500; text-align: center;">Two locks? Better. But not enough. Not anymore.</p>
+        <div class="dialogue-box">
+            <span class="speaker-name">NARRATOR:</span>
+            <p>Imagine a lock picker that tries 1,000,000 keys while you blink. That is AI vs your Password.</p>
         </div>
     </div>
 
-    <!-- Page 6: 3FA - The Real Lock -->
+    <!-- PAGE 5: 2FA HACKED -->
     <div class="page">
-        <div class="content-section">
-            <div class="comparison-grid">
-                <div class="comparison-card secure">
-                    <div class="comparison-number">3</div>
-                    <div class="comparison-label">Three Locks</div>
-                    <div class="comparison-status secure">SECURE</div>
-                    <p style="font-size: 0.95rem; color: #666; margin-top: 1rem;">Password + Key + You</p>
-                </div>
-            </div>
+        <h1 style="text-align: center;">2 FACTOR</h1>
+        <h2 style="text-align: center;">STATUS: COMPROMISED</h2>
 
-            <h2 class="section-title" style="margin-top: 2rem;">This is the answer.</h2>
-            <p class="section-subtitle">For the AI age.</p>
-
-            <div class="factor-box" style="background: #e8f5e9;">
-                <div class="factor-icon">
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="30" y="50" width="40" height="40" rx="4" fill="none" stroke="#34c759" stroke-width="4"/>
-                        <path d="M 30 50 L 30 30 Q 30 20 40 20 L 60 20 Q 70 20 70 30 L 70 50" fill="none" stroke="#34c759" stroke-width="4"/>
-                        <circle cx="50" cy="70" r="6" fill="#34c759"/>
-                    </svg>
-                </div>
-                <div class="factor-content">
-                    <h3>Something You Know</h3>
-                    <p>Your password</p>
-                </div>
+        <div class="panel" style="margin-top: 2rem;">
+            <div class="panel-title">THE SIM SWAP</div>
+            
+            <div style="font-family: 'VT323', monospace; font-size: 1.2rem;">
+                [1] AI CLONES YOUR VOICE<br>
+                [2] HACKER CALLS TELECOM<br>
+                [3] "HEY, I LOST MY PHONE"<br>
+                [4] VOICE MATCH: CONFIRMED<br>
+                [5] NUMBER TRANSFERRED<br>
+                [6] GAME OVER
             </div>
+        </div>
 
-            <div class="factor-box" style="background: #e3f2fd;">
-                <div class="factor-icon">
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="35" y="25" width="30" height="50" rx="4" fill="none" stroke="#004e89" stroke-width="4"/>
-                        <rect x="40" y="35" width="20" height="25" rx="2" fill="none" stroke="#004e89" stroke-width="3"/>
-                        <circle cx="50" cy="85" r="3" fill="#004e89"/>
-                    </svg>
-                </div>
-                <div class="factor-content">
-                    <h3>Something You Have</h3>
-                    <p>A YubiKey. A physical key you touch. Can't be hacked remotely. Can't be cloned.</p>
-                </div>
-            </div>
+<pre>
+      _____
+     /     \
+    |  SMS  |  < INTERCEPTED >
+    | CODE  |
+     \_____/
+        ^
+        |
+    [ HACKER ]
+</pre>
 
-            <div class="factor-box" style="background: #fff3e0;">
-                <div class="factor-icon">
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 30 60 Q 30 40 50 40 Q 70 40 70 60 Q 70 80 50 80 Q 30 80 30 60" fill="none" stroke="#ff9500" stroke-width="4"/>
-                        <path d="M 20 50 Q 25 45 30 50 M 70 50 Q 75 45 80 50" fill="none" stroke="#ff9500" stroke-width="3"/>
-                        <path d="M 35 70 Q 40 75 50 75 Q 60 75 65 70" fill="none" stroke="#ff9500" stroke-width="3"/>
-                    </svg>
-                </div>
-                <div class="factor-content">
-                    <h3>Something You Are</h3>
-                    <p>Your fingerprint. Your face. AI can't fake your actual body.</p>
-                </div>
-            </div>
-
-            <div class="metaphor-box" style="background: #e8f5e9; border-color: #34c759;">
-                <strong>Why This Works:</strong>
-                <p>Even if AI steals your password. Even if they steal your phone number. They still need your fingerprint. They still need your physical key.</p>
-                <p style="margin-top: 1rem;">AI can't clone your body. AI can't hack a physical object in your pocket.</p>
-            </div>
-
-            <div class="quote-box" style="background: #e8f5e9; border-color: #34c759;">
-                "Three locks. All strong. That's the only way to stay safe in the AI age."
-            </div>
+        <div class="quote-box" style="border: 2px solid #000; padding: 1rem; text-align: center;">
+            "Someone stole your house key AND convinced the locksmith they were you."
         </div>
     </div>
 
-    <!-- Page 7: The Chain -->
+    <!-- PAGE 6: 3FA SECURE -->
     <div class="page">
-        <div class="content-section">
-            <h2 class="section-title">Every link matters.</h2>
-            <p class="section-subtitle">A chain is only as strong as its weakest link.</p>
+        <div class="speed-lines"></div>
+        <div style="text-align: center; border: 4px solid #000; padding: 2rem; background: #fff; position: relative; z-index: 1;">
+            <h1 style="font-size: 5rem; line-height: 1;">3 FA</h1>
+            <h2>THE ULTIMATE DEFENSE</h2>
+        </div>
 
-            <div class="chain-visual">
-                <div class="chain-link">
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px; margin: 0 auto;">
-                        <rect x="30" y="50" width="40" height="40" rx="4" fill="none" stroke="white" stroke-width="4"/>
-                        <path d="M 30 50 L 30 30 Q 30 20 40 20 L 60 20 Q 70 20 70 30 L 70 50" fill="none" stroke="white" stroke-width="4"/>
-                        <circle cx="50" cy="70" r="6" fill="white"/>
-                    </svg>
-                    <div class="chain-link-label">Password</div>
-                </div>
-                <div class="chain-arrow">→</div>
-                <div class="chain-link">
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px; margin: 0 auto;">
-                        <rect x="25" y="20" width="50" height="70" rx="8" fill="none" stroke="white" stroke-width="4"/>
-                        <rect x="35" y="30" width="30" height="40" rx="2" fill="none" stroke="white" stroke-width="3"/>
-                        <circle cx="50" cy="80" r="4" fill="white"/>
-                    </svg>
-                    <div class="chain-link-label">Phone/Key</div>
-                </div>
-                <div class="chain-arrow">→</div>
-                <div class="chain-link">
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 60px; height: 60px; margin: 0 auto;">
-                        <path d="M 30 60 Q 30 40 50 40 Q 70 40 70 60 Q 70 80 50 80 Q 30 80 30 60" fill="none" stroke="white" stroke-width="4"/>
-                        <path d="M 20 50 Q 25 45 30 50 M 70 50 Q 75 45 80 50" fill="none" stroke="white" stroke-width="3"/>
-                        <path d="M 35 70 Q 40 75 50 75 Q 60 75 65 70" fill="none" stroke="white" stroke-width="3"/>
-                    </svg>
-                    <div class="chain-link-label">Biometric</div>
-                </div>
+        <div style="margin-top: 2rem;">
+            <div class="panel" style="background: #000; color: #fff;">
+                <h3>LAYER 1: PASSWORD</h3>
+                <p>[ BYPASSED? OKAY. ]</p>
+            </div>
+            
+            <div class="panel" style="background: #333; color: #fff;">
+                <h3>LAYER 2: YUBIKEY (PHYSICAL)</h3>
+                <p>[ CANNOT BE HACKED REMOTELY ]</p>
             </div>
 
-            <div class="story-box">
-                <h3>What Happens When One Link Breaks</h3>
-                <p><strong>Weak password?</strong> AI guesses it. Chain broken.</p>
-                <p style="margin-top: 1rem;"><strong>SMS 2FA?</strong> SIM swap breaks it. Chain broken.</p>
-                <p style="margin-top: 1rem;"><strong>No biometric?</strong> They only need two things. Chain broken.</p>
+            <div class="panel" style="background: #fff; color: #000;">
+                <h3>LAYER 3: BIOMETRIC</h3>
+                <p>[ AI CANNOT CLONE YOUR THUMB ]</p>
             </div>
+        </div>
 
-            <div class="metaphor-box">
-                <strong>It's like a three-link chain:</strong>
-                <p>If one link is weak, the whole chain breaks. If one lock is weak, your whole security breaks.</p>
-            </div>
+<pre>
+    / \
+   /   \
+  /  @  \
+ /_______\
+  SHIELD
+  ACTIVE
+</pre>
 
-            <div class="story-box" style="background: #fff5f5; border-color: #ff3b30;">
-                <h3>The Scary Combo</h3>
-                <p><strong>SIM Swap + Voice Cloning = Disaster</strong></p>
-                <p style="margin-top: 1rem;">This is what happened to that $25 million company. Voice cloning got them past the phone company. SIM swap got them the codes. Weak password got them in.</p>
-                <p style="margin-top: 1rem;">Three weak links. One attack. Everything gone.</p>
-            </div>
-
-            <p style="font-size: 1.2rem; font-weight: 600; margin-top: 2rem; text-align: center;">Three locks. All strong. That's the only way.</p>
+        <div class="terminal-window">
+            <p>> THREAT ASSESSMENT: NEGLIGIBLE</p>
+            <p>> AI CANNOT SIMULATE PHYSICAL REALITY... YET.</p>
         </div>
     </div>
 
-    <!-- Page 8: What To Do -->
+    <!-- PAGE 7: THE CHAIN -->
     <div class="page">
-        <div class="content-section">
-            <h2 class="section-title">So what do you do?</h2>
-            <p class="section-subtitle">Start simple. Build from there.</p>
+        <h2 style="text-align: center;">THE WEAKEST LINK</h2>
 
-            <div class="call-to-action">
-                <h3>Start Here</h3>
-                <p style="font-size: 1.3rem; margin-top: 1rem;">1. Use a password manager</p>
-                <p style="font-size: 1.3rem;">2. Enable 2FA (authenticator app, not SMS)</p>
-                <p style="font-size: 1.3rem;">3. Use biometrics on your phone</p>
-            </div>
+<pre style="font-size: 10px; line-height: 10px;">
+   Pass       Phone       Bio
+  .---.      .---.      .---.
+ (     )====(     )====(     )
+  `---'      `---'      `---'
+</pre>
 
-            <div class="call-to-action" style="background: linear-gradient(135deg, #34c759 0%, #30d158 100%); margin-top: 2rem;">
-                <h3>Level Up</h3>
-                <p style="font-size: 1.3rem; margin-top: 1rem;">1. Get a YubiKey</p>
-                <p style="font-size: 1.3rem;">2. Enable 3FA on important accounts</p>
-                <p style="font-size: 1.3rem;">3. Protect your phone number with a PIN</p>
-            </div>
+        <div class="panel" style="margin-top: 2rem;">
+            <h3>IF ONE BREAKS...</h3>
+            <p>WEAK PASS? -> AI GUESSES IT.</p>
+            <p>SMS 2FA? -> SIM SWAP.</p>
+            <p>NO BIO? -> THEY WALK RIGHT IN.</p>
+        </div>
 
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-year">Pre-Internet</div>
-                    <div class="timeline-description"><strong>1FA</strong> - One password. Simple times.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">Internet Age</div>
-                    <div class="timeline-description"><strong>2FA</strong> - Password + phone. This was the answer.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">AI Age</div>
-                    <div class="timeline-description"><strong>3FA</strong> - Password + key + you. This is the answer.</div>
-                </div>
-            </div>
-
-            <div class="quote-box" style="background: #000; color: white; border-color: white;">
-                <p style="font-size: 1.4rem; font-weight: 300;">"The threat is real. The time is now. But you're not powerless."</p>
-            </div>
-
-            <p style="font-size: 1.2rem; margin-top: 2rem; text-align: center;">
-                <strong>1FA = Pre-Internet</strong><br>
-                <strong>2FA = Post-Internet</strong><br>
-                <strong>3FA = Post-AI</strong>
-            </p>
-
-            <p style="font-size: 1.1rem; margin-top: 2rem; text-align: center; color: #666;">
-                Start with 2FA. Aim for 3FA. Your digital life depends on it.
-            </p>
+        <div class="panel" style="border: 4px dashed #000;">
+            <div class="panel-title">FATAL COMBO</div>
+            <h2 style="color: red;">SIM SWAP + VOICE CLONE</h2>
+            <p>This is how they stole the $25M.</p>
+            <p>1. Voice Clone fools the human.</p>
+            <p>2. Sim Swap gets the codes.</p>
+            <p>3. Password gets them in.</p>
+        </div>
+        
+        <div style="text-align: center; font-size: 2rem; font-weight: bold; margin-top: 2rem;">
+            STRENGTHEN.<br>EVERY.<br>LINK.
         </div>
     </div>
+
+    <!-- PAGE 8: ACTION PLAN -->
+    <div class="page">
+        <h1 style="font-size: 3rem; text-align: center;">MISSION: SECURE</h1>
+        
+        <div class="panel">
+            <h3>LVL 1: BASIC DEFENSE</h3>
+            <div style="font-family: 'VT323'; font-size: 1.5rem;">
+                [ ] PASSWORD MANAGER<br>
+                [ ] APP-BASED 2FA (NO SMS)<br>
+                [ ] FACE ID / TOUCH ID
+            </div>
+        </div>
+
+        <div class="panel" style="background: #000; color: #fff;">
+            <h3>LVL 99: GOD MODE</h3>
+            <div style="font-family: 'VT323'; font-size: 1.5rem;">
+                [ ] YUBIKEY (PHYSICAL)<br>
+                [ ] 3FA EVERYWHERE<br>
+                [ ] CARRIER PIN CODE
+            </div>
+        </div>
+
+        <div class="terminal-window">
+            <p>> HISTORICAL LOG:</p>
+            <p>> PRE-NET: 1FA (PASS)</p>
+            <p>> PRE-AI:  2FA (PHONE)</p>
+            <p>> POST-AI: 3FA (YOU)</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+            <h2>GAME OVER FOR HACKERS.</h2>
+            <p>PRESS [START] TO BEGIN YOUR DEFENSE.</p>
+        </div>
+        
+        <div class="scanline"></div>
+    </div>
+
 </body>
 </html>
