@@ -28,10 +28,14 @@
 
 /* Intro Section */
 .intro-section {
-  padding: 6rem 2rem;
+  padding: 8rem 2rem;
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .intro-title {
@@ -58,9 +62,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 6rem 2rem;
+  padding: 8rem 2rem;
   max-width: 800px;
   margin: 0 auto;
+  min-height: 70vh;
 }
 
 .story-card {
@@ -174,8 +179,8 @@
 .stats-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 3rem;
-  padding: 6rem 2rem;
+  gap: 4rem;
+  padding: 8rem 2rem;
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -205,7 +210,7 @@
 
 /* Protections Section */
 .protections-section {
-  padding: 6rem 2rem;
+  padding: 8rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }

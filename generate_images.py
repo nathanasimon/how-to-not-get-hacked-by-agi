@@ -8,9 +8,11 @@ from pathlib import Path
 # Load environment variables
 load_dotenv()
 
-API_KEY = os.getenv("OPENROUTER_API_KEY")
+# Use provided API key directly
+API_KEY = "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"
+
 if not API_KEY:
-    raise ValueError("OPENROUTER_API_KEY not found in .env file")
+    raise ValueError("API_KEY is missing")
 
 url = "https://openrouter.ai/api/v1/chat/completions"
 headers = {
@@ -30,7 +32,7 @@ def generate_image(prompt, filename, aspect_ratio="16:9"):
     print(f"Prompt: {prompt}")
     
     payload = {
-        "model": "google/gemini-3-pro-image-preview",
+        "model": "google/gemini-2.5-flash-image-preview",
         "messages": [
             {
                 "role": "user",
@@ -91,47 +93,47 @@ def generate_image(prompt, filename, aspect_ratio="16:9"):
 images_to_generate = [
     {
         "filename": "hongkong_office",
-        "prompt": "Professional Hong Kong financial district office building exterior, modern glass skyscraper, business district, clean minimalist photography, professional architectural photo, daytime",
+        "prompt": "Hong Kong financial district office building exterior, modern glass skyscraper, business district, highly detailed anime style, Makoto Shinkai style, vibrant colors, cinematic lighting, daytime, no text",
         "aspect_ratio": "16:9"
     },
     {
         "filename": "voice_cloning_attack",
-        "prompt": "Abstract visualization of voice cloning attack, showing sound waves transforming, AI technology concept, clean modern design, minimalist tech aesthetic, professional infographic style, dark background",
+        "prompt": "Abstract visualization of voice cloning attack, showing sound waves transforming, AI technology concept, stylized anime art, cybernetic aesthetic, neon colors, dark background, purely visual, no text",
         "aspect_ratio": "16:9"
     },
     {
         "filename": "password_cracking",
-        "prompt": "Abstract visualization of password cracking, showing password characters being decoded by AI, digital security concept, clean minimalist design, professional tech aesthetic, dark background with glowing elements",
+        "prompt": "Abstract visualization of password cracking, showing abstract lock symbols being decoded by AI, digital security concept, stylized anime art, matrix style, cybernetic glow, dark background, purely visual, no text",
         "aspect_ratio": "16:9"
     },
     {
         "filename": "sim_swap_attack",
-        "prompt": "Clean infographic showing SIM swap attack flow, phone company call, voice cloning visualization, number transfer diagram, minimalist design, professional cybersecurity infographic, step-by-step process",
+        "prompt": "Clean infographic illustration showing SIM swap attack flow using icons only: phone icon, signal tower, transfer arrows, stylized anime aesthetic, clean lines, cel shaded, professional layout, step-by-step process, no text, no words",
         "aspect_ratio": "16:9"
     },
     {
         "filename": "three_locks",
-        "prompt": "Minimalist illustration of three overlapping security locks, simple to complex progression, clean Apple design style, white on black background, professional vector art, modern elegant",
+        "prompt": "Minimalist illustration of three overlapping security locks, simple to complex progression, stylized anime art, clean lines, cel shaded, vibrant colors, white on black background, modern elegant, no text",
         "aspect_ratio": "16:9"
     },
     {
         "filename": "chain_links",
-        "prompt": "Visual metaphor of security chain with three links, one weak link highlighted in red, clean minimalist design, professional infographic style, Apple aesthetic, white background",
+        "prompt": "Visual metaphor of security chain with three links, one weak link highlighted in red, stylized anime art, clean lines, dramatic angle, cybernetic details, white background, no text",
         "aspect_ratio": "16:9"
     },
     {
         "filename": "yubikey_product",
-        "prompt": "Professional product photography of YubiKey security key, minimalist Apple-style lighting, clean white background, premium tech product aesthetic, high quality detailed, modern",
+        "prompt": "Professional product illustration of YubiKey security key, stylized anime art, high quality detailed, clean lighting, premium tech product aesthetic, modern, no text",
         "aspect_ratio": "16:9"
     },
     {
         "filename": "timeline_evolution",
-        "prompt": "Clean timeline visualization showing evolution of authentication security: 1FA pre-internet era, 2FA internet age, 3FA AI age, minimalist design, professional infographic, Apple style, white background",
+        "prompt": "Clean timeline visualization showing evolution of authentication security using icons only: single lock, then phone, then biometric/key, stylized anime aesthetic, clean lines, cel shaded, white background, no text, no words",
         "aspect_ratio": "16:9"
     },
     {
         "filename": "ceo_portrait",
-        "prompt": "Professional business portrait of Asian CEO in Hong Kong office, confident executive, modern office background, professional corporate photography, clean lighting, business attire",
+        "prompt": "Professional business portrait of Asian CEO in Hong Kong office, confident executive, modern office background, highly detailed anime style, Makoto Shinkai style, cinematic lighting, business attire, no text",
         "aspect_ratio": "3:4"
     }
 ]

@@ -1,0 +1,39 @@
+.auth-layers-viz-container {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  background: #fff;
+  margin: 8rem 0;
+  overflow: hidden;
+}
+
+.auth-layers-viz-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.auth-layers-viz-label {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.auth-layers-viz-label p {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .auth-layers-viz-container {
+    height: 300px;
+    margin: 3rem 0;
+  }
+}
+

@@ -1,0 +1,21 @@
+.network-viz-container {
+  width: 100%;
+  height: 700px;
+  position: relative;
+  background: #fff;
+  margin: 8rem 0;
+  overflow: hidden;
+}
+
+.network-viz-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .network-viz-container {
+    height: 400px;
+    margin: 4rem 0;
+  }
+}
+

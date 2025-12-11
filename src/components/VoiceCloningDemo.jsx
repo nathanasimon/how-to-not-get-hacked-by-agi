@@ -4,6 +4,10 @@ import AuthComparison from './AuthComparison'
 import AttackTimeline from './AttackTimeline'
 import HowItWorks from './HowItWorks'
 import AutonomousAI from './AutonomousAI'
+import AttackVisualization from './AttackVisualization'
+import AuthLayersVisualization from './AuthLayersVisualization'
+import NetworkVisualization from './NetworkVisualization'
+import DataFlowVisualization from './DataFlowVisualization'
 import './VoiceCloningDemo.css'
 
 function VoiceCloningDemo() {
@@ -156,6 +160,8 @@ function VoiceCloningDemo() {
         </div>
       </div>
 
+      <NetworkVisualization />
+
       <div className="stats-section">
         <div className="stat">
           <div className="stat-number">442%</div>
@@ -171,7 +177,11 @@ function VoiceCloningDemo() {
         </div>
       </div>
 
+      <DataFlowVisualization />
+
       <AutonomousAI />
+
+      <AttackVisualization />
 
       <AttackTimeline />
 
@@ -180,6 +190,8 @@ function VoiceCloningDemo() {
       <HowItWorks />
 
       <AuthComparison />
+
+      <AuthLayersVisualization />
 
       <div className="protections-section">
         <h2 className="protections-title">How to protect yourself.</h2>

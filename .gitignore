@@ -6,8 +6,10 @@ package-lock.json
 dist
 build
 
+# Ignored files directory
+_ignored/
+
 # Generated files
-zine.pdf
 *.pdf
 
 # Environment files
@@ -35,15 +37,6 @@ Thumbs.db
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# Screenshots
-Screenshot*.png
-
-# Old HTML files (keep only essential ones)
-zine-final*.html
-zine-simple.html
-zine-steve-jobs*.html
-pdf-zine.html
 
 # Temporary files
 *.tmp
