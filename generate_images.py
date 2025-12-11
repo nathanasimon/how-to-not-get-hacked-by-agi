@@ -8,9 +8,6 @@ from pathlib import Path
 # Load environment variables
 load_dotenv()
 
-# Use provided API key directly
-API_KEY = "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"
-
 if not API_KEY:
     raise ValueError("API_KEY is missing")
 
