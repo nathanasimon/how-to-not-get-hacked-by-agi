@@ -16,7 +16,17 @@ function Cover({ onStart }) {
           <span className="warning-icon">⚠️</span>
           <p>The threat is real. The time is now.</p>
         </div>
-        <button className="cover-button" onClick={onStart}>
+        <button 
+          className="cover-button" 
+          onClick={() => {
+            onStart()
+            // Scroll to first section after a brief delay
+            setTimeout(() => {
+              const firstSection = document.querySelectorAll('.section')[1]
+              firstSection?.scrollIntoView({ behavior: 'smooth' })
+            }, 100)
+          }}
+        >
           START READING
         </button>
         <div className="cover-scroll-hint">

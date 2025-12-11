@@ -38,6 +38,43 @@
   margin-bottom: 0;
 }
 
+.section-list {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+  list-style: none;
+  position: relative;
+}
+
+.section-list::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--primary), var(--accent));
+}
+
+.section-list-item {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.section-list-item::before {
+  content: '▸';
+  position: absolute;
+  left: -0.5rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.section-list-item:last-child {
+  margin-bottom: 0;
+}
+
 @media (max-width: 768px) {
   .section-container {
     padding: 1rem;

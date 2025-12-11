@@ -1,0 +1,376 @@
+.phishing-demo-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.phishing-demo-content {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 107, 53, 0.2);
+  border-radius: 12px;
+  padding: 3rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.phishing-demo-title {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--primary);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 3px solid var(--primary);
+  padding-bottom: 1rem;
+}
+
+.phishing-demo-intro {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+}
+
+.email-selector {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.email-select-btn {
+  flex: 1;
+  min-width: 200px;
+  padding: 1rem;
+  background: rgba(0, 78, 137, 0.2);
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  border-radius: 8px;
+  color: var(--light);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.email-select-btn:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.email-select-btn.active {
+  background: rgba(255, 107, 53, 0.2);
+  border-color: var(--primary);
+  font-weight: bold;
+}
+
+.email-display {
+  background: #ffffff;
+  color: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+}
+
+.email-header {
+  background: #f5f5f5;
+  padding: 1.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.email-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.email-field {
+  font-size: 0.95rem;
+}
+
+.email-field strong {
+  color: #666;
+  min-width: 70px;
+  display: inline-block;
+}
+
+.email-from,
+.email-subject {
+  color: #000;
+  font-family: 'Space Mono', monospace;
+}
+
+.email-body {
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  white-space: pre-line;
+  background: #fff;
+  color: #333;
+}
+
+.email-controls {
+  background: #f5f5f5;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #ddd;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.reveal-btn,
+.reset-btn {
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.reveal-btn {
+  background: var(--primary);
+  color: #fff;
+}
+
+.reveal-btn:hover {
+  background: #ff6b35;
+  transform: scale(1.05);
+}
+
+.reset-btn {
+  background: rgba(0, 0, 0, 0.1);
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.reset-btn:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.flag-counter {
+  margin-left: auto;
+  font-family: 'Space Mono', monospace;
+  color: #666;
+  font-weight: bold;
+}
+
+.red-flags-list {
+  margin: 3rem 0;
+}
+
+.red-flags-list h3 {
+  font-family: 'Space Mono', monospace;
+  color: var(--accent);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.flags-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.flag-card {
+  background: rgba(0, 78, 137, 0.2);
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  border-radius: 8px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.flag-card.severity-critical {
+  border-color: rgba(255, 107, 53, 0.5);
+}
+
+.flag-card.severity-high {
+  border-color: rgba(255, 210, 63, 0.5);
+}
+
+.flag-card.severity-medium {
+  border-color: rgba(0, 212, 255, 0.5);
+}
+
+.flag-card.hidden {
+  opacity: 0.6;
+}
+
+.flag-card.revealed {
+  background: rgba(255, 107, 53, 0.1);
+  border-color: var(--primary);
+}
+
+.flag-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+.flag-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.flag-icon {
+  font-size: 1.5rem;
+}
+
+.flag-text {
+  font-family: 'Space Mono', monospace;
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.flag-details {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 107, 53, 0.3);
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.flag-details p {
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+.flag-details strong {
+  color: var(--primary);
+}
+
+.phishing-warning {
+  background: rgba(26, 26, 26, 0.8);
+  border: 2px solid var(--warning);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+.phishing-warning h3 {
+  font-family: 'Space Mono', monospace;
+  color: var(--warning);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.comparison-old,
+.comparison-new {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.comparison-old {
+  border: 2px solid rgba(0, 212, 255, 0.5);
+}
+
+.comparison-new {
+  border: 2px solid rgba(255, 107, 53, 0.5);
+}
+
+.comparison-old h4,
+.comparison-new h4 {
+  font-family: 'Space Mono', monospace;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.comparison-old h4 {
+  color: var(--accent);
+}
+
+.comparison-new h4 {
+  color: var(--primary);
+}
+
+.comparison-old ul,
+.comparison-new ul {
+  list-style: none;
+  padding: 0;
+}
+
+.comparison-old li,
+.comparison-new li {
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.7rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.comparison-old li::before,
+.comparison-new li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+}
+
+.comparison-old li::before {
+  color: var(--accent);
+}
+
+.comparison-new li::before {
+  color: var(--primary);
+}
+
+.comparison-note {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--warning);
+  line-height: 1.8;
+  padding: 1.5rem;
+  background: rgba(255, 210, 63, 0.1);
+  border-radius: 8px;
+}
+
+.comparison-note strong {
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .phishing-demo-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .email-selector {
+    flex-direction: column;
+  }
+
+  .email-select-btn {
+    width: 100%;
+  }
+
+  .flags-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+}

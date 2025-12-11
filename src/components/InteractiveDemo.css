@@ -47,7 +47,42 @@
   transition: all 0.3s;
   position: relative;
   overflow: hidden;
+  animation: fadeInUp 0.6s ease-out backwards;
 }
+
+.attack-card.severity-critical {
+  border-color: rgba(255, 107, 53, 0.5);
+  background: rgba(255, 107, 53, 0.05);
+}
+
+.attack-card.severity-high {
+  border-color: rgba(255, 210, 63, 0.5);
+  background: rgba(255, 210, 63, 0.05);
+}
+
+.attack-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.attack-card:nth-child(1) { animation-delay: 0.1s; }
+.attack-card:nth-child(2) { animation-delay: 0.2s; }
+.attack-card:nth-child(3) { animation-delay: 0.3s; }
+.attack-card:nth-child(4) { animation-delay: 0.4s; }
+.attack-card:nth-child(5) { animation-delay: 0.5s; }
 
 .attack-card::before {
   content: '';
@@ -81,8 +116,41 @@
 }
 
 .attack-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  font-weight: 900;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: -0.05em;
+  color: var(--primary);
+  background: rgba(255, 107, 53, 0.2);
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
+  border: 2px solid var(--primary);
+}
+
+.severity-badge {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+.severity-badge.critical {
+  background: rgba(255, 107, 53, 0.2);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.severity-badge.high {
+  background: rgba(255, 210, 63, 0.2);
+  color: var(--warning);
+  border: 1px solid var(--warning);
+}
+
+.severity-badge.large {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
 }
 
 .attack-title {
@@ -96,7 +164,18 @@
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.95rem;
   line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.attack-stats {
+  font-family: 'Space Mono', monospace;
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: bold;
   margin-bottom: 1rem;
+  padding: 0.5rem;
+  background: rgba(255, 107, 53, 0.1);
+  border-left: 3px solid var(--primary);
 }
 
 .attack-hover-hint {
@@ -153,11 +232,33 @@
   color: var(--primary);
 }
 
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 .details-title {
   font-family: 'Space Mono', monospace;
   font-size: 2rem;
   color: var(--primary);
-  margin-bottom: 1.5rem;
+  margin: 0;
+}
+
+.details-stat-highlight {
+  font-family: 'Space Mono', monospace;
+  font-size: 1.3rem;
+  color: var(--primary);
+  font-weight: bold;
+  padding: 1rem;
+  background: rgba(255, 107, 53, 0.15);
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .details-content {
@@ -165,16 +266,32 @@
   line-height: 1.8;
 }
 
+.details-section {
+  margin-bottom: 2rem;
+}
+
+.details-section h4,
+.why-it-worked h4,
+.sources h4 {
+  font-family: 'Space Mono', monospace;
+  color: var(--accent);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 .details-text {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   margin-bottom: 1.5rem;
+  white-space: pre-line;
 }
 
 .real-example {
   background: rgba(255, 107, 53, 0.1);
   border-left: 4px solid var(--primary);
   padding: 1.5rem;
-  margin-top: 1.5rem;
+  margin: 2rem 0;
 }
 
 .real-example strong {
@@ -187,6 +304,65 @@
 .real-example p {
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
+}
+
+.why-it-worked {
+  background: rgba(0, 212, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.why-it-worked ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.why-it-worked li {
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.why-it-worked li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.sources {
+  background: rgba(26, 26, 26, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.sources ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sources li {
+  margin-bottom: 0.5rem;
+}
+
+.sources a {
+  color: var(--accent);
+  text-decoration: none;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.sources a:hover {
+  color: var(--primary);
+  text-decoration: underline;
 }
 
 .demo-warning {

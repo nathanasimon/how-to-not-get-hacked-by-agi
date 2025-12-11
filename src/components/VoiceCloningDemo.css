@@ -1,0 +1,317 @@
+.voice-demo-container {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+
+.voice-demo-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 8rem 2rem;
+}
+
+.story-header {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.story-number {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(4rem, 12vw, 8rem);
+  font-weight: 700;
+  color: #000;
+  line-height: 1;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.story-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 600;
+  color: #000;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.story-subtitle {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  color: #666;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.story-nav {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.story-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ddd;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0;
+}
+
+.story-dot:hover {
+  background: #999;
+  transform: scale(1.2);
+}
+
+.story-dot.active {
+  background: #000;
+  transform: scale(1.3);
+}
+
+.story-content {
+  max-width: 900px;
+  margin: 0 auto 8rem;
+  position: relative;
+}
+
+.story-card {
+  background: #f9f9f9;
+  border-radius: 24px;
+  padding: 4rem;
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #eee;
+}
+
+.story-amount {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 700;
+  color: #000;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.story-victim {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 0.5rem;
+}
+
+.story-location {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 3rem;
+  font-weight: 400;
+}
+
+.story-body {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  line-height: 1.8;
+  color: #333;
+  white-space: pre-line;
+  font-weight: 400;
+}
+
+.story-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border: 2px solid #000;
+  color: #000;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.story-nav-btn:hover {
+  background: #000;
+  color: #fff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.story-nav-btn.prev {
+  left: -80px;
+}
+
+.story-nav-btn.next {
+  right: -80px;
+}
+
+.action-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.action-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 600;
+  color: #000;
+  text-align: center;
+  margin-bottom: 4rem;
+  letter-spacing: -0.02em;
+}
+
+.action-primary {
+  background: #000;
+  border-radius: 24px;
+  padding: 4rem;
+  margin-bottom: 3rem;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.action-primary .action-number {
+  font-family: 'Space Mono', monospace;
+  font-size: 6rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.action-primary .action-content h3 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.action-primary .action-content p {
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+}
+
+.action-primary .action-why {
+  color: #fff;
+  font-weight: 500;
+}
+
+.action-secondary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.action-item {
+  background: #f9f9f9;
+  border: 2px solid #eee;
+  border-radius: 16px;
+  padding: 2.5rem;
+  transition: all 0.3s;
+}
+
+.action-item:hover {
+  border-color: #000;
+  transform: translateY(-5px);
+}
+
+.action-item .action-number {
+  font-family: 'Space Mono', monospace;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ccc;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.action-item .action-text h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.action-item .action-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #666;
+}
+
+.reality-check {
+  background: rgba(255, 107, 53, 0.1);
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.reality-check h3 {
+  font-family: 'Space Mono', monospace;
+  color: var(--primary);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.reality-check p {
+  font-size: 1.1rem;
+  line-height: 2;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1rem;
+}
+
+.reality-check strong {
+  color: var(--primary);
+  font-family: 'Space Mono', monospace;
+}
+
+@media (max-width: 1024px) {
+  .story-nav-btn {
+    display: none;
+  }
+
+  .action-primary {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .voice-demo-content {
+    padding: 4rem 1.5rem;
+  }
+
+  .story-header {
+    margin-bottom: 4rem;
+  }
+
+  .story-card {
+    padding: 2.5rem 2rem;
+    min-height: 400px;
+  }
+
+  .action-section {
+    padding: 0 1.5rem;
+  }
+
+  .action-secondary {
+    grid-template-columns: 1fr;
+  }
+
+  .action-item {
+    padding: 2rem;
+  }
+}

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Cover from './components/Cover'
 import Section from './components/Section'
 import InteractiveDemo from './components/InteractiveDemo'
+import VoiceCloningDemo from './components/VoiceCloningDemo'
 import ProtectionGuide from './components/ProtectionGuide'
 import Footer from './components/Footer'
 import './App.css'
@@ -16,24 +17,24 @@ function App() {
     },
     {
       id: 'intro',
-      title: 'AI Hackers Are Dangerous',
-      content: `The cybersecurity landscape is fundamentally changing. AI-powered hacking tools are democratizing sophisticated cyberattacks, making them accessible to anyone with an internet connection and a subscription to an AI service.
+      title: 'The New Reality',
+      content: `In September 2025, Chinese state-sponsored hackers used Claude AI to autonomously hack approximately 30 organizations—executing 80-90% of the attack without human intervention.
 
-Tools like Claude Code and other autonomous AI systems can now independently execute complex technical tasks that previously required years of human expertise. This isn't science fiction—it's happening right now.
+In February 2024, a finance worker at Arup transferred $25.6 million to fraudsters after a video call with deepfaked colleagues who looked and sounded completely real.
 
-What makes AI hackers particularly dangerous is their ability to:
-- Work 24/7 without fatigue
-- Scale attacks across thousands of targets simultaneously
-- Learn and adapt from each attempt
-- Generate convincing phishing content in any language
-- Automate vulnerability discovery and exploitation
+In July 2025, Sharon Brightwell sent $15,000 to scammers after receiving a call from her "daughter" begging for help. The voice was AI-generated from 3 seconds of audio scraped from social media.
 
-The barrier to entry for sophisticated cyberattacks has collapsed. We need to act now.`
+This isn't coming. It's here. Generative AI has changed everything, and your family is vulnerable right now.`
     },
     {
       id: 'how-hacked',
-      title: 'How You Will Be Hacked',
+      title: 'Real Attacks, Real Damage',
       component: <InteractiveDemo />
+    },
+    {
+      id: 'voice-demo',
+      title: 'How Your Grandparents Will Get Scammed',
+      component: <VoiceCloningDemo />
     },
     {
       id: 'protect',
@@ -57,8 +58,14 @@ The barrier to entry for sophisticated cyberattacks has collapsed. We need to ac
   }
 
   React.useEffect(() => {
+    // Smooth scroll behavior
+    document.documentElement.style.scrollBehavior = 'smooth'
+    
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      document.documentElement.style.scrollBehavior = 'auto'
+    }
   }, [])
 
   return (
