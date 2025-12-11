@@ -1,0 +1,202 @@
+.auth-layers-section {
+  padding: 8rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.auth-layers-content {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.auth-layers-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.auth-layers-description {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(0.9375rem, 1.6vw, 1.0625rem);
+  color: #1d1d1f;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.auth-comparison-table {
+  margin-bottom: 6rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+}
+
+.table-header {
+  background: #fafafa;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.table-row {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-cell {
+  padding: 1.25rem 1.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+}
+
+.header-cell {
+  font-weight: 600;
+  color: #000;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.method-cell {
+  color: #1d1d1f;
+}
+
+.status-cell {
+  font-weight: 600;
+  justify-content: center;
+}
+
+.status-cell.vulnerable {
+  color: #ff3b30;
+  background: rgba(255, 59, 48, 0.05);
+}
+
+.status-cell.protected {
+  color: #34c759;
+  background: rgba(52, 199, 89, 0.05);
+}
+
+.auth-factors-breakdown {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.factor-box {
+  flex: 1;
+  max-width: 250px;
+  padding: 2rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.factor-box.highlight {
+  border-color: #000;
+  border-width: 2px;
+}
+
+.factor-number {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #e5e5e5;
+  line-height: 1;
+}
+
+.factor-box.highlight .factor-number {
+  color: #000;
+}
+
+.factor-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.factor-name {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.75rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.factor-example {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #000;
+}
+
+.factor-weakness {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.875rem;
+  color: #ff3b30;
+}
+
+.factor-strength {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #34c759;
+}
+
+.factor-plus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 2rem;
+  font-weight: 300;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .table-header,
+  .table-row {
+    grid-template-columns: 1fr;
+  }
+
+  .header-cell:not(:first-child) {
+    display: none;
+  }
+
+  .table-cell {
+    padding: 1rem;
+  }
+
+  .method-cell {
+    font-weight: 600;
+    background: #fafafa;
+  }
+
+  .auth-factors-breakdown {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .factor-box {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .factor-plus {
+    transform: rotate(90deg);
+  }
+}

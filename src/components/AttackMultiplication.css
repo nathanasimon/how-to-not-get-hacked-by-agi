@@ -1,0 +1,104 @@
+.attack-multiplication-section {
+  padding: 8rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.attack-multiplication-content {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.attack-multiplication-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.attack-multiplication-description {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(0.9375rem, 1.6vw, 1.0625rem);
+  color: #1d1d1f;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.attack-multiplication-container {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  background: #fff;
+  overflow: hidden;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+}
+
+.attack-multiplication-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.attack-multiplication-legend {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.875rem;
+  color: #1d1d1f;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.legend-dot.safe {
+  background: #000000;
+}
+
+.legend-dot.infected {
+  background: #ff3b30;
+}
+
+.legend-line {
+  width: 30px;
+  height: 2px;
+  background: #ff3b30;
+}
+
+@media (max-width: 768px) {
+  .attack-multiplication-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .attack-multiplication-container {
+    height: 500px;
+  }
+
+  .attack-multiplication-legend {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+

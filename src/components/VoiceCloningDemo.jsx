@@ -4,10 +4,9 @@ import AuthComparison from './AuthComparison'
 import AttackTimeline from './AttackTimeline'
 import HowItWorks from './HowItWorks'
 import AutonomousAI from './AutonomousAI'
-import AttackVisualization from './AttackVisualization'
-import AuthLayersVisualization from './AuthLayersVisualization'
-import NetworkVisualization from './NetworkVisualization'
-import DataFlowVisualization from './DataFlowVisualization'
+import MalwareCreation from './MalwareCreation'
+import DataTheft from './DataTheft'
+import VoiceCloneFlow from './VoiceCloneFlow'
 import './VoiceCloningDemo.css'
 
 function VoiceCloningDemo() {
@@ -48,50 +47,20 @@ function VoiceCloningDemo() {
   const protections = [
     {
       number: '1',
-      title: 'Get a physical security key.',
-      body: `YubiKey. Titan Security Key. These small devices plug into your computer or phone. They cannot be cloned. AI cannot replicate what you physically hold.`,
-      reason: `Physical keys are the strongest protection. AI cannot clone hardware.`
+      title: 'Enable three-factor authentication.',
+      body: `Something you know (password) + something you have (smartphone) + something you are (fingerprint or face ID). Use a physical security key like YubiKey when possible.`,
+      reason: `AI cannot clone your fingerprint or face. Physical keys cannot be replicated.`
     },
     {
       number: '2',
-      title: 'Use biometric authentication everywhere.',
-      body: `Face ID. Fingerprint. Touch ID. Enable biometric login on your phone, computer, and apps. Your face and fingerprint cannot be cloned by AI.`,
-      reason: `Biometrics are physical. AI can clone voices but not your face or fingerprint.`
-    },
-    {
-      number: '3',
-      title: 'Enable three-factor authentication.',
-      body: `Something you know (password) + something you have (smartphone) + something you are (fingerprint or face ID). This combination stops AI attacks completely.`,
-      reason: `Three factors: something you know + something you have + something you are. AI cannot clone your fingerprint or face.`
-    },
-    {
-      number: '4',
-      title: 'Use authenticator apps with biometrics.',
-      body: `Google Authenticator. Authy. 1Password. Enable two-factor authentication everywhere. Use Face ID or fingerprint when possible. Never use text message codes.`,
-      reason: `Authenticator apps with biometrics are stronger than text messages. AI can steal phone calls but not your fingerprint or face.`
-    },
-    {
-      number: '5',
       title: 'Pick a family code word.',
-      body: `Choose a random phrase. Tell your family: if anyone calls asking for money, they must say this code word first.`,
+      body: `Choose a random phrase. Tell your family: if anyone calls asking for money, they must say this code word first. Hang up and call back on a saved number.`,
       reason: `AI can clone voices. It cannot know your secret.`
     },
     {
-      number: '6',
-      title: 'Hang up and call back.',
-      body: `If anyone calls with an emergency, hang up. Call them back using a number you have saved. Do not use any number they provide.`,
-      reason: `Real emergencies can wait 2 minutes for verification.`
-    },
-    {
-      number: '7',
-      title: 'Lock down social media voices.',
-      body: `Make your videos private. Remove voice samples from public posts. Scammers need 3 seconds of audio.`,
-      reason: `Less public audio means harder to clone.`
-    },
-    {
-      number: '8',
+      number: '3',
       title: 'Talk to your parents today.',
-      body: `Sit down with them. Explain voice cloning. Show them examples. Set up biometric authentication and the family code word together.`,
+      body: `Sit down with them. Explain voice cloning. Show them this zine. Set up biometric authentication and the family code word together.`,
       reason: `Elderly people lost $1 billion to AI scams in 2024.`
     }
   ]
@@ -160,8 +129,6 @@ function VoiceCloningDemo() {
         </div>
       </div>
 
-      <NetworkVisualization />
-
       <div className="stats-section">
         <div className="stat">
           <div className="stat-number">442%</div>
@@ -177,21 +144,19 @@ function VoiceCloningDemo() {
         </div>
       </div>
 
-      <DataFlowVisualization />
-
       <AutonomousAI />
 
-      <AttackVisualization />
+      <MalwareCreation />
 
       <AttackTimeline />
 
-      <VoiceCloneVisualization />
+      <VoiceCloneFlow />
 
       <HowItWorks />
 
-      <AuthComparison />
+      <DataTheft />
 
-      <AuthLayersVisualization />
+      <AuthComparison />
 
       <div className="protections-section">
         <h2 className="protections-title">How to protect yourself.</h2>
@@ -209,28 +174,11 @@ function VoiceCloningDemo() {
             </div>
           ))}
         </div>
-        <div className="physical-auth-emphasis">
-          <h3 className="emphasis-title">Physical authentication stops AI</h3>
-          <div className="emphasis-grid">
-            <div className="emphasis-item">
-              <h4>Physical Security Keys</h4>
-              <p>YubiKey. Titan Security Key. You plug them in. AI cannot clone hardware.</p>
-            </div>
-            <div className="emphasis-item">
-              <h4>Biometric Authentication</h4>
-              <p>Face ID. Fingerprint. Touch ID. AI cannot clone your face or fingerprint.</p>
-            </div>
-            <div className="emphasis-item">
-              <h4>Three-Factor Authentication</h4>
-              <p>Password. Smartphone. Fingerprint or face ID. Three layers. AI stops here.</p>
-            </div>
-          </div>
-        </div>
       </div>
 
       <div className="footer-section">
-        <p className="footer-text">The threat is real. The time is now.</p>
-        <p className="footer-subtext">Start with the family code word. Do it today.</p>
+        <p className="footer-text">Thank you for reading.</p>
+        <p className="footer-subtext">Protect yourself.</p>
       </div>
     </div>
   )
