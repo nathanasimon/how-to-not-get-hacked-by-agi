@@ -1,0 +1,11 @@
+{
+  "hongkong_office": "images/hongkong_office.png",
+  "voice_cloning_attack": "images/voice_cloning_attack.png",
+  "password_cracking": "images/password_cracking.png",
+  "sim_swap_attack": "images/sim_swap_attack.png",
+  "three_locks": "images/three_locks.png",
+  "chain_links": "images/chain_links.png",
+  "yubikey_product": "images/yubikey_product.png",
+  "timeline_evolution": "images/timeline_evolution.png",
+  "ceo_portrait": "images/ceo_portrait.png"
+}
