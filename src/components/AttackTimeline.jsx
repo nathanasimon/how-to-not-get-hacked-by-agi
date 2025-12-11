@@ -25,14 +25,14 @@ function AttackTimeline() {
     },
     {
       year: '2024',
-      event: 'Deepfake video calls',
+      event: 'Fake video calls',
       description: 'Arup loses $25.6M. Entire video calls faked. Voice + face cloning combined.',
       color: '#34c759'
     },
     {
       year: '2025',
-      event: 'Autonomous AI hacking',
-      description: 'AI hacks without humans. Discovers vulnerabilities. Executes attacks. 90% autonomous.',
+      event: 'AI hacks on its own',
+      description: 'AI hacks without humans. Finds security weaknesses. Uses them to attack. 90% done by AI.',
       color: '#000'
     }
   ]
@@ -41,7 +41,7 @@ function AttackTimeline() {
     <div className="attack-timeline">
       <h2 className="timeline-title">How we got here</h2>
       <p className="timeline-intro">
-        The threat evolved quickly. Each year brought new capabilities.
+        The danger changed quickly. Each year brought new ways to attack.
       </p>
 
       <div className="timeline-container">
@@ -65,8 +65,8 @@ function AttackTimeline() {
 
       <div className="timeline-note">
         <p>
-          What took skilled hackers years to develop now takes minutes. 
-          AI democratized sophisticated attacks. Anyone can do it now.
+          What took expert hackers years to learn now takes minutes. 
+          AI made complex attacks easy. Anyone can do it now.
         </p>
       </div>
     </div>

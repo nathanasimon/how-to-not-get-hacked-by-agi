@@ -127,24 +127,24 @@ const AuthLayersVisualization = () => {
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate)
-      time += 0.01
+      time += 0.003
 
-      // Rotate layers at different speeds
-      layer1.rotation.z = time * 0.3
-      layer2.rotation.z = -time * 0.2
-      layer3.rotation.z = time * 0.15
+      // Rotate layers at different speeds - much slower
+      layer1.rotation.z = time * 0.05
+      layer2.rotation.z = -time * 0.04
+      layer3.rotation.z = time * 0.03
 
-      // Animate particles
-      particles1.rotation.y = time * 0.5
-      particles2.rotation.y = -time * 0.4
-      particles3.rotation.y = time * 0.3
+      // Animate particles slowly
+      particles1.rotation.y = time * 0.08
+      particles2.rotation.y = -time * 0.06
+      particles3.rotation.y = time * 0.05
 
-      // Rotate connections
-      connections.rotation.y = time * 0.1
+      // Rotate connections very slowly
+      connections.rotation.y = time * 0.02
 
-      // Camera slight rotation
-      camera.position.x = Math.sin(time * 0.1) * 0.5
-      camera.position.y = Math.cos(time * 0.08) * 0.3
+      // Camera slight rotation - very subtle
+      camera.position.x = Math.sin(time * 0.02) * 0.3
+      camera.position.y = Math.cos(time * 0.015) * 0.2
       camera.lookAt(0, 0, 0)
 
       renderer.render(scene, camera)
@@ -190,10 +190,16 @@ const AuthLayersVisualization = () => {
   }, [])
 
   return (
-    <div className="auth-layers-viz-container">
-      <div ref={containerRef} className="auth-layers-viz-canvas" />
-      <div className="auth-layers-viz-label">
-        <p>Three layers. Three factors. AI stops here.</p>
+    <div className="auth-layers-viz-section">
+      <div className="auth-layers-viz-content">
+        <h2 className="auth-layers-viz-title">Three layers of protection</h2>
+        <p className="auth-layers-viz-description">
+          Each layer rotates independently. Password. Smartphone. Biometric. 
+          They work together. They overlap. They create a barrier AI cannot penetrate.
+        </p>
+      </div>
+      <div className="auth-layers-viz-container">
+        <div ref={containerRef} className="auth-layers-viz-canvas" />
       </div>
     </div>
   )

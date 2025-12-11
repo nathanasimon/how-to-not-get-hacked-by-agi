@@ -39,9 +39,9 @@ function AuthComparison() {
 
   return (
     <div className="auth-comparison">
-      <h2 className="auth-title">The evolution of authentication</h2>
+      <h2 className="auth-title">How security changed over time</h2>
       <p className="auth-intro">
-        Click each era to see how authentication requirements changed.
+        Click each era to see how security requirements changed.
       </p>
 
       <div className="eras-grid">
@@ -102,7 +102,7 @@ function AuthComparison() {
           <strong>1 Factor:</strong> Something you know (password). AI can guess it. Hackers can steal it.
         </p>
         <p>
-          <strong>2 Factor:</strong> Something you know + something you have (password + smartphone). AI can intercept SMS codes. AI can clone voices for phone verification.
+          <strong>2 Factor:</strong> Something you know + something you have (password + smartphone). AI can steal text message codes. AI can clone voices for phone verification.
         </p>
         <p>
           <strong>3 Factor:</strong> Something you know + something you have + something you are (password + smartphone + fingerprint/face ID). AI cannot clone your fingerprint. AI cannot replicate your face. This is the final layer that stops AI attacks.

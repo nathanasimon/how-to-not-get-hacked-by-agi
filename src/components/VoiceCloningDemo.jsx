@@ -27,14 +27,14 @@ function VoiceCloningDemo() {
       amountLost: '$25.6M',
       victim: 'Arup',
       location: 'Hong Kong',
-      story: `February 2024. A finance worker received a video call. The CFO appeared on screen. The voice was familiar. The face looked real. The CFO asked for a secret transaction. $25.6 million was transferred. The video call was a deepfake. The CFO never made that call.`
+      story: `February 2024. A finance worker received a video call. The CFO appeared on screen. The voice sounded right. The face looked real. The CFO asked for a secret transaction. $25.6 million was transferred. The video call was fake. AI made it. The CFO never made that call.`
     },
     {
       id: 2,
       amountLost: '$690,000',
       victim: 'Steve Beauchamp, 82',
       location: 'United States',
-      story: `Steve watched a video of Elon Musk explaining an investment. The voice was clear. The face looked real. Over several weeks Steve transferred $690,000. His entire retirement fund. Every penny went to scammers. The video was a deepfake. Musk never said any of it.`
+      story: `Steve watched a video of Elon Musk explaining an investment. The voice sounded real. The face looked real. Over several weeks Steve transferred $690,000. His entire retirement fund. Every penny went to scammers. The video was fake. AI made it. Musk never said any of it.`
     },
     {
       id: 3,
@@ -67,8 +67,8 @@ function VoiceCloningDemo() {
     {
       number: '4',
       title: 'Use authenticator apps with biometrics.',
-      body: `Google Authenticator. Authy. 1Password. Enable two-factor authentication everywhere. Use Face ID or fingerprint when possible. Never use SMS codes.`,
-      reason: `Authenticator apps with biometrics are stronger than SMS. AI can intercept phone calls but not your biometric.`
+      body: `Google Authenticator. Authy. 1Password. Enable two-factor authentication everywhere. Use Face ID or fingerprint when possible. Never use text message codes.`,
+      reason: `Authenticator apps with biometrics are stronger than text messages. AI can steal phone calls but not your fingerprint or face.`
     },
     {
       number: '5',
@@ -113,15 +113,15 @@ function VoiceCloningDemo() {
       </div>
 
       <div className="intro-section">
-        <h2 className="intro-title">AI-powered hacking changed everything.</h2>
+        <h2 className="intro-title">AI changed hacking forever.</h2>
         <p className="intro-text">
-          Sophisticated cyberattacks used to require elite hackers. Years of training. Deep technical knowledge.
-          Now AI can independently execute complex attacks. Anyone with AI access can exploit vulnerabilities.
-          The barrier to entry collapsed. The threat landscape fundamentally shifted.
+          Complex hacking attacks used to need expert hackers. Years of training. Deep technical skills.
+          Now AI can hack on its own. Anyone with AI can find security weaknesses and use them.
+          It's easy to get started. The danger changed completely.
         </p>
         <p className="intro-text">
-          These are real people. Real families. Real losses. AI can clone voices. Create deepfakes. 
-          Hack autonomously. These stories happened. They're happening now.
+          These are real people. Real families. Real losses. AI can clone voices. Create fake videos that look real. 
+          Hack without human help. These stories happened. They're happening now.
         </p>
       </div>
 
@@ -165,15 +165,15 @@ function VoiceCloningDemo() {
       <div className="stats-section">
         <div className="stat">
           <div className="stat-number">442%</div>
-          <div className="stat-label">increase in vishing attacks in 2024</div>
+          <div className="stat-label">increase in phone scams in 2024</div>
         </div>
         <div className="stat">
           <div className="stat-number">$40B</div>
-          <div className="stat-label">projected loss to deepfake scams by 2027</div>
+          <div className="stat-label">projected loss to fake video scams by 2027</div>
         </div>
         <div className="stat">
           <div className="stat-number">$1/month</div>
-          <div className="stat-label">cost of commercial voice cloning tools</div>
+          <div className="stat-label">cost to clone someone's voice</div>
         </div>
       </div>
 
@@ -196,8 +196,8 @@ function VoiceCloningDemo() {
       <div className="protections-section">
         <h2 className="protections-title">How to protect yourself.</h2>
         <p className="protections-intro">
-          AI can clone voices. It can bypass phone verification. It can trick authenticator apps. 
-          But AI cannot clone what you physically are or hold. Physical authentication is your strongest defense.
+          AI can clone voices. It can trick phone verification. It can fool security apps. 
+          But AI cannot clone what you physically are or hold. Physical security is your strongest defense.
         </p>
         <div className="protections-grid">
           {protections.map((protection) => (

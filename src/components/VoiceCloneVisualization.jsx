@@ -34,7 +34,7 @@ function VoiceCloneVisualization() {
     <div className="voice-clone-viz">
       <h2 className="viz-title">How voice cloning works</h2>
       <p className="viz-intro">
-        Click the button below to see how quickly AI can clone a voice from audio samples.
+        Click the button below to see how quickly AI can copy someone's voice from audio samples.
       </p>
 
       <div className="clone-demo">

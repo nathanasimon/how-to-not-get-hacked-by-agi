@@ -130,7 +130,7 @@ const AttackVisualization = () => {
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate)
-      time += 0.01
+      time += 0.002
 
       // Clear previous fields
       mainGroup.children.forEach((child) => {
@@ -156,14 +156,14 @@ const AttackVisualization = () => {
       const field = createInterferenceField(sources, 5, 40, time)
       mainGroup.add(field)
 
-      // Rotate slowly
-      mainGroup.rotation.y = Math.sin(time * 0.1) * 0.1
-      mainGroup.rotation.x = Math.cos(time * 0.08) * 0.05
+      // Rotate very slowly
+      mainGroup.rotation.y = Math.sin(time * 0.02) * 0.05
+      mainGroup.rotation.x = Math.cos(time * 0.015) * 0.03
 
-      // Animate particles
+      // Animate particles slowly
       const positions = particleSystem.geometry.attributes.position.array
       for (let i = 0; i < particleCount; i++) {
-        positions[i * 3 + 1] += Math.sin(time + i) * 0.002
+        positions[i * 3 + 1] += Math.sin(time * 0.5 + i) * 0.0005
         if (positions[i * 3 + 1] > 3) positions[i * 3 + 1] = -3
       }
       particleSystem.geometry.attributes.position.needsUpdate = true
@@ -213,10 +213,16 @@ const AttackVisualization = () => {
   }, [])
 
   return (
-    <div className="attack-viz-container">
-      <div ref={containerRef} className="attack-viz-canvas" />
-      <div className="attack-viz-label">
-        <p>AI attacks spread like waves</p>
+    <div className="attack-viz-section">
+      <div className="attack-viz-content">
+        <h2 className="attack-viz-title">How AI attacks spread</h2>
+        <p className="attack-viz-description">
+          AI doesn't attack one target at a time. It spreads like waves. Multiple attack sources create patterns. 
+          The waves overlap. They get stronger. They reach everywhere.
+        </p>
+      </div>
+      <div className="attack-viz-container">
+        <div ref={containerRef} className="attack-viz-canvas" />
       </div>
     </div>
   )

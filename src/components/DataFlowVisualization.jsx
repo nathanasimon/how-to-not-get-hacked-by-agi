@@ -33,7 +33,7 @@ const DataFlowVisualization = () => {
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate)
-      time += 0.01
+      time += 0.003
 
       ctx.fillStyle = '#ffffff'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
@@ -83,8 +83,17 @@ const DataFlowVisualization = () => {
   }, [])
 
   return (
-    <div className="dataflow-viz-container">
-      <canvas ref={canvasRef} className="dataflow-viz-canvas" />
+    <div className="dataflow-viz-section">
+      <div className="dataflow-viz-content">
+        <h2 className="dataflow-viz-title">Your data flows everywhere</h2>
+        <p className="dataflow-viz-description">
+          Your data moves through networks. It connects. It flows. 
+          AI tracks these connections. It finds patterns. It uses weaknesses.
+        </p>
+      </div>
+      <div className="dataflow-viz-container">
+        <canvas ref={canvasRef} className="dataflow-viz-canvas" />
+      </div>
     </div>
   )
 }

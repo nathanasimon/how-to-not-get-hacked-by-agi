@@ -7,15 +7,15 @@ function HowItWorks() {
   const steps = [
     {
       number: '1',
-      title: 'Scrape your voice',
+      title: 'Find your voice online',
       description: 'AI finds 3 seconds of your voice from Instagram, Facebook, TikTok, or any public video.',
-      detail: 'Every video you post publicly is training data. AI doesn\'t need much.'
+      detail: 'Every video you post publicly can be used. AI doesn\'t need much.'
     },
     {
       number: '2',
-      title: 'Train the model',
-      description: 'Commercial tools process your audio. Takes minutes. Costs $1/month.',
-      detail: 'The AI learns your voice patterns, inflections, pauses. Everything that makes your voice yours.'
+      title: 'Learn your voice',
+      description: 'Tools process your audio. Takes minutes. Costs $1/month.',
+      detail: 'The AI learns how you talk. Your patterns. Your pauses. Everything that makes your voice yours.'
     },
     {
       number: '3',

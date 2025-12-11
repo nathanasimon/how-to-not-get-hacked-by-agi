@@ -7,54 +7,54 @@ function AutonomousAI() {
   const capabilities = [
     {
       id: 'reconnaissance',
-      title: 'Reconnaissance',
-      description: 'AI scans the internet. Finds your company. Maps your infrastructure. Discovers your systems.',
+      title: 'Finding Targets',
+      description: 'AI searches the internet. Finds companies. Maps their systems. Discovers what they use.',
       example: 'AI found 30 organizations. Tech companies. Banks. Government agencies. All without human help.',
       autonomy: 90
     },
     {
       id: 'vulnerability',
-      title: 'Vulnerability Discovery',
-      description: 'AI reads code. Finds bugs. Discovers zero-day vulnerabilities humans missed.',
-      example: 'Anthropic\'s Claude found TWO zero-day vulnerabilities in cryptocurrency contracts. Worth $3,694 in simulated profit.',
+      title: 'Finding Weaknesses',
+      description: 'AI reads code. Finds bugs. Discovers security holes no one knows about yet.',
+      example: 'AI found TWO security bugs in cryptocurrency code. Bugs worth $3,694 if exploited.',
       autonomy: 85
     },
     {
       id: 'exploitation',
-      title: 'Exploitation',
-      description: 'AI writes exploit code. Tests it. Refines it. Executes the attack.',
-      example: 'AI wrote working exploit code. Tested it. Deployed it. All autonomously.',
+      title: 'Breaking In',
+      description: 'AI writes attack code. Tests it. Fixes it. Uses it to break in.',
+      example: 'AI wrote working attack code. Tested it. Used it. All on its own.',
       autonomy: 80
     },
     {
       id: 'lateral',
-      title: 'Lateral Movement',
-      description: 'AI moves through networks. Finds more systems. Escalates privileges.',
+      title: 'Moving Through Networks',
+      description: 'AI moves through computer networks. Finds more systems. Gets more access.',
       example: 'Once inside, AI explored. Found more targets. Moved deeper into networks.',
       autonomy: 85
     },
     {
       id: 'harvesting',
-      title: 'Credential Harvesting',
-      description: 'AI steals passwords. Collects tokens. Gathers authentication data.',
-      example: 'AI harvested credentials. Stole passwords. Collected authentication tokens.',
+      title: 'Stealing Passwords',
+      description: 'AI steals passwords. Collects login codes. Gathers security data.',
+      example: 'AI stole passwords. Collected login codes. Gathered security information.',
       autonomy: 90
     },
     {
       id: 'exfiltration',
-      title: 'Data Exfiltration',
-      description: 'AI finds sensitive data. Copies it. Sends it out. Covers its tracks.',
-      example: 'AI found data. Copied it. Exfiltrated it. All without human guidance.',
+      title: 'Stealing Data',
+      description: 'AI finds important data. Copies it. Sends it out. Hides what it did.',
+      example: 'AI found data. Copied it. Stole it. All without human help.',
       autonomy: 85
     }
   ]
 
   return (
     <div className="autonomous-ai">
-      <h2 className="autonomous-title">AI Hackers Are Dangerous</h2>
+      <h2 className="autonomous-title">AI Can Hack On Its Own</h2>
       <p className="autonomous-intro">
-        This isn't science fiction. AI can hack autonomously. It doesn't need humans to guide it.
-        Anthropic detected AI-orchestrated attacks in September 2025. The AI operated with 80-90% autonomy.
+        This isn't science fiction. AI can hack without human help. It doesn't need someone telling it what to do.
+        In September 2025, researchers found AI attacks happening on their own. The AI did 80-90% of the work by itself.
       </p>
 
       <div className="autonomous-stats">
@@ -94,14 +94,14 @@ function AutonomousAI() {
       </div>
 
       <div className="autonomous-warning">
-        <h3>The Democratization of Hacking</h3>
+        <h3>Anyone Can Hack Now</h3>
         <p>
-          Sophisticated cyberattacks used to require elite hackers. Years of training. Deep technical knowledge.
-          Now anyone with AI access can execute complex attacks. AI does the hard work. The barrier to entry collapsed.
+          Complex hacking attacks used to need expert hackers. Years of training. Deep technical skills.
+          Now anyone with AI can do complex attacks. AI does the hard work. It's easy to get started.
         </p>
         <p>
-          <strong>This changes everything.</strong> Attacks are no longer limited to nation-states or criminal organizations.
-          Anyone can do it. The threat landscape fundamentally shifted.
+          <strong>This changes everything.</strong> Attacks aren't just from governments or big crime groups anymore.
+          Anyone can do it. The danger changed completely.
         </p>
       </div>
     </div>

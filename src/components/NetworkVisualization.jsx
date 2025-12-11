@@ -79,14 +79,14 @@ const NetworkVisualization = () => {
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate)
-      time += 0.01
+      time += 0.003
 
-      // Animate nodes
+      // Animate nodes slowly
       nodes.forEach((node, i) => {
         const { baseAngle, baseRadius, speed } = node.userData
-        node.position.x = Math.cos(baseAngle + time * speed) * baseRadius
-        node.position.z = Math.sin(baseAngle + time * speed) * baseRadius
-        node.position.y = (Math.random() - 0.5) * 4 + Math.sin(time * speed + i) * 0.5
+        node.position.x = Math.cos(baseAngle + time * speed * 0.3) * baseRadius
+        node.position.z = Math.sin(baseAngle + time * speed * 0.3) * baseRadius
+        node.position.y = (Math.random() - 0.5) * 4 + Math.sin(time * speed * 0.3 + i) * 0.3
       })
 
       // Update connections
@@ -102,9 +102,9 @@ const NetworkVisualization = () => {
         geometry.attributes.position.needsUpdate = true
       })
 
-      // Rotate camera
-      camera.position.x = Math.sin(time * 0.1) * 2
-      camera.position.y = Math.cos(time * 0.08) * 1.5
+      // Rotate camera very slowly
+      camera.position.x = Math.sin(time * 0.02) * 1.5
+      camera.position.y = Math.cos(time * 0.015) * 1
       camera.lookAt(0, 0, 0)
 
       renderer.render(scene, camera)
@@ -150,8 +150,18 @@ const NetworkVisualization = () => {
   }, [])
 
   return (
-    <div className="network-viz-container">
-      <div ref={containerRef} className="network-viz-canvas" />
+    <div className="network-viz-section">
+      <div className="network-viz-content">
+        <h2 className="network-viz-title">How attacks spread through networks</h2>
+        <p className="network-viz-description">
+          AI attacks don't happen alone. They spread through computer networks. 
+          Each computer connects to others. Each connection can be a weakness. 
+          The network grows. The danger multiplies.
+        </p>
+      </div>
+      <div className="network-viz-container">
+        <div ref={containerRef} className="network-viz-canvas" />
+      </div>
     </div>
   )
 }
