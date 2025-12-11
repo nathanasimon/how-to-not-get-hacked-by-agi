@@ -1,226 +1,224 @@
 import React, { useState } from 'react'
+import VoiceCloneVisualization from './VoiceCloneVisualization'
+import AuthComparison from './AuthComparison'
+import AttackTimeline from './AttackTimeline'
+import HowItWorks from './HowItWorks'
+import AutonomousAI from './AutonomousAI'
 import './VoiceCloningDemo.css'
 
 function VoiceCloningDemo() {
   const [selectedCase, setSelectedCase] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
 
   const realCases = [
     {
       id: 0,
-      title: 'Maureen: "My Grandson Needs Bail Money"',
-      victim: 'Maureen (San Diego Grandmother)',
-      location: 'San Diego, California',
-      date: '2024',
-      amountLost: '$8,200 (attempted)',
-      story: `The phone rang. Maureen answered.
-
-"Grandma, I'm in trouble. I got in an accident and I'm in jail. I need $8,200 for bail right now."
-
-The voice was her grandson's. Every inflection. Every pause. She was certain.
-
-She nearly wired the money. Then she hung up and called her grandson's real number.
-
-He answered from his college dorm. He was fine. The voice had been AI. Cloned from 15 seconds of Instagram video.`,
-      howItWorked: [
-        'Scammers found 15 seconds of her grandson\'s voice on Instagram',
-        'AI cloned it perfectly—pitch, tone, emotional cadence',
-        'Called at a time Grandma would be home alone',
-        'Created panic: jail, accident, urgent bail money',
-        'Nearly worked. She almost wired $8,200.'
-      ],
-      source: 'https://metanews.com/alert-grandma-avoids-losing-thousands-in-ai-voice-cloning-scam/'
+      amountLost: '$8,200',
+      victim: 'Maureen',
+      location: 'San Diego',
+      story: `The phone rang. Maureen answered. "Grandma, I'm in jail. I need $8,200 for bail." The voice was her grandson's. Every inflection. Every pause. She nearly wired the money. Then she called his real number. He was fine. The voice had been AI. Cloned from 15 seconds of Instagram.`
     },
     {
       id: 1,
-      title: 'Bank Account Drained: Voice Reset Scam',
-      victim: 'Multiple bank customers',
-      location: 'United States',
-      date: '2024',
-      amountLost: 'Varies - accounts fully drained',
-      story: `A journalist tested their bank in 2024. They cloned their own voice with AI. Then they called the bank.
-
-"I need to reset my password."
-
-The bank accepted it. Within minutes they had full account access.
-
-Starling Bank warned in September 2024 that millions of people could fall victim.
-
-The attack is simple. Scammers scrape your voice from social media. They call your bank. Voice verification passes. Password resets. Account drained.`,
-      howItWorked: [
-        'Banks use voice verification: "Say your full name and birthday"',
-        'Scammers scrape your voice from social media',
-        'AI clones it in minutes using $5/month tools',
-        'They call your bank pretending to be you',
-        'Voice auth passes. Password resets. Account drained.',
-        '91% of US banks are now reconsidering voice verification'
-      ],
-      source: 'https://www.vice.com/en/article/how-i-broke-into-a-bank-account-with-an-ai-generated-voice/'
+      amountLost: '$25.6M',
+      victim: 'Arup',
+      location: 'Hong Kong',
+      story: `February 2024. A finance worker received a video call. The CFO appeared on screen. The voice was familiar. The face looked real. The CFO asked for a secret transaction. $25.6 million was transferred. The video call was a deepfake. The CFO never made that call.`
     },
     {
       id: 2,
-      title: 'Steve: $690,000 Retirement Fund Gone',
+      amountLost: '$690,000',
       victim: 'Steve Beauchamp, 82',
       location: 'United States',
-      date: '2025',
-      amountLost: '$690,000 (entire retirement)',
-      story: `Steve Beauchamp was 82. He watched a video of Elon Musk explaining a new investment.
-
-The voice was clear. The face looked real. The investment seemed legitimate.
-
-Over several weeks Steve transferred $690,000. His entire retirement fund.
-
-Every penny went to scammers.
-
-The video was a deepfake. The voice was AI. Musk never said any of it. Steve lost everything.`,
-      howItWorked: [
-        'Deepfake video of Elon Musk promoting fake investment',
-        'AI-cloned voice, AI-generated facial movements',
-        'Looked and sounded completely legitimate',
-        'Targeted elderly victim over several weeks',
-        'Entire $690,000 retirement fund stolen',
-        'Victim didn\'t realize until it was too late'
-      ],
-      source: 'https://www.ctol.digital/news/ai-powered-scams-drain-700-million-from-seniors-retirement-losses-surge-eightfold/'
+      story: `Steve watched a video of Elon Musk explaining an investment. The voice was clear. The face looked real. Over several weeks Steve transferred $690,000. His entire retirement fund. Every penny went to scammers. The video was a deepfake. Musk never said any of it.`
     },
     {
       id: 3,
-      title: 'Sharon: $15,000 to Save Her "Daughter"',
-      victim: 'Sharon Brightwell',
-      location: 'Dover, Florida',
-      date: 'July 2025',
       amountLost: '$15,000',
-      story: `Sharon's phone rang. Her daughter was crying.
-
-"Mom, I've been in an accident. I lost the baby. I'm in trouble. I need help right now."
-
-Sharon sent $15,000 cash to a courier. Her daughter needed her.
-
-Later she called her daughter's real number.
-
-Her daughter answered. She was fine. No accident. No baby. No trouble.
-
-The crying voice had been AI. Trained on 3 seconds from Facebook.`,
-      howItWorked: [
-        'Voice cloned from 3 seconds of Facebook video',
-        '85% accuracy in pitch, tone, emotion',
-        'Targeted when Sharon was alone',
-        'Emotional manipulation: lost baby, legal trouble',
-        '$15,000 sent before verification'
-      ],
-      source: 'https://www.americanbar.org/groups/senior_lawyers/resources/voice-of-experience/2025-september/ai-cloned-voice-scam/'
+      victim: 'Sharon Brightwell',
+      location: 'Florida',
+      story: `Sharon's phone rang. Her daughter was crying. "Mom, I've been in an accident. I lost the baby. I need help right now." Sharon sent $15,000 cash to a courier. Later she called her daughter's real number. Her daughter answered. She was fine. The crying voice had been AI. Cloned from 3 seconds of Facebook video.`
     }
   ]
 
-  const stats = [
+  const protections = [
     {
-      number: '3 seconds',
-      label: 'of audio needed to clone a voice with 85% accuracy'
+      number: '1',
+      title: 'Get a physical security key.',
+      body: `YubiKey. Titan Security Key. These small devices plug into your computer or phone. They cannot be cloned. AI cannot replicate what you physically hold.`,
+      reason: `Physical keys are the strongest protection. AI cannot clone hardware.`
     },
     {
-      number: '442%',
-      label: 'increase in vishing attacks in 2024'
+      number: '2',
+      title: 'Use biometric authentication everywhere.',
+      body: `Face ID. Fingerprint. Touch ID. Enable biometric login on your phone, computer, and apps. Your face and fingerprint cannot be cloned by AI.`,
+      reason: `Biometrics are physical. AI can clone voices but not your face or fingerprint.`
     },
     {
-      number: '$40B',
-      label: 'projected loss to deepfake scams by 2027'
+      number: '3',
+      title: 'Enable three-factor authentication.',
+      body: `Something you know (password) + something you have (smartphone) + something you are (fingerprint or face ID). This combination stops AI attacks completely.`,
+      reason: `Three factors: something you know + something you have + something you are. AI cannot clone your fingerprint or face.`
     },
     {
-      number: '$1/month',
-      label: 'cost of commercial voice cloning tools during sales'
+      number: '4',
+      title: 'Use authenticator apps with biometrics.',
+      body: `Google Authenticator. Authy. 1Password. Enable two-factor authentication everywhere. Use Face ID or fingerprint when possible. Never use SMS codes.`,
+      reason: `Authenticator apps with biometrics are stronger than SMS. AI can intercept phone calls but not your biometric.`
+    },
+    {
+      number: '5',
+      title: 'Pick a family code word.',
+      body: `Choose a random phrase. Tell your family: if anyone calls asking for money, they must say this code word first.`,
+      reason: `AI can clone voices. It cannot know your secret.`
+    },
+    {
+      number: '6',
+      title: 'Hang up and call back.',
+      body: `If anyone calls with an emergency, hang up. Call them back using a number you have saved. Do not use any number they provide.`,
+      reason: `Real emergencies can wait 2 minutes for verification.`
+    },
+    {
+      number: '7',
+      title: 'Lock down social media voices.',
+      body: `Make your videos private. Remove voice samples from public posts. Scammers need 3 seconds of audio.`,
+      reason: `Less public audio means harder to clone.`
+    },
+    {
+      number: '8',
+      title: 'Talk to your parents today.',
+      body: `Sit down with them. Explain voice cloning. Show them examples. Set up biometric authentication and the family code word together.`,
+      reason: `Elderly people lost $1 billion to AI scams in 2024.`
     }
   ]
 
   const currentCase = realCases[selectedCase]
 
+  const handleCaseChange = (newIndex) => {
+    setIsTransitioning(true)
+    setTimeout(() => {
+      setSelectedCase(newIndex)
+      setIsTransitioning(false)
+    }, 150)
+  }
+
   return (
     <div className="voice-demo-container">
-      <div className="voice-demo-content">
-        <div className="story-header">
-          <div className="story-number">3 seconds</div>
-          <h2 className="story-title">That's all it takes to clone a voice.</h2>
-          <p className="story-subtitle">
-            These are real people. Real families. Real losses.
-          </p>
+      <div className="site-header">
+        <h1 className="site-title">HOW TO NOT GET HACKED BY AGI</h1>
+      </div>
+
+      <div className="intro-section">
+        <h2 className="intro-title">AI-powered hacking changed everything.</h2>
+        <p className="intro-text">
+          Sophisticated cyberattacks used to require elite hackers. Years of training. Deep technical knowledge.
+          Now AI can independently execute complex attacks. Anyone with AI access can exploit vulnerabilities.
+          The barrier to entry collapsed. The threat landscape fundamentally shifted.
+        </p>
+        <p className="intro-text">
+          These are real people. Real families. Real losses. AI can clone voices. Create deepfakes. 
+          Hack autonomously. These stories happened. They're happening now.
+        </p>
+      </div>
+
+      <div className="story-section">
+        <div className={`story-card ${isTransitioning ? 'fade-out' : 'fade-in'}`}>
+          <div className="story-amount">{currentCase.amountLost}</div>
+          <div className="story-victim">{currentCase.victim}</div>
+          <div className="story-meta">{currentCase.location}</div>
+          <div className="story-text">{currentCase.story}</div>
         </div>
 
-        <div className="story-nav">
-          {realCases.map((c, idx) => (
+        <div className="story-controls">
+          <div className="story-dots">
+            {realCases.map((c, idx) => (
+              <button
+                key={c.id}
+                className={`story-dot ${selectedCase === c.id ? 'active' : ''}`}
+                onClick={() => handleCaseChange(c.id)}
+              />
+            ))}
+          </div>
+          <div className="story-nav">
             <button
-              key={c.id}
-              className={`story-dot ${selectedCase === c.id ? 'active' : ''}`}
-              onClick={() => setSelectedCase(c.id)}
-              aria-label={`Story ${idx + 1}`}
-            />
-          ))}
-        </div>
-
-        <div className="story-content">
-          <div className="story-card">
-            <div className="story-amount">{currentCase.amountLost}</div>
-            <div className="story-victim">{currentCase.victim}</div>
-            <div className="story-location">{currentCase.location} • {currentCase.date}</div>
-
-            <div className="story-body">
-              {currentCase.story}
-            </div>
-
-            <button
-              className="story-nav-btn prev"
-              onClick={() => setSelectedCase((selectedCase - 1 + realCases.length) % realCases.length)}
+              className="story-nav-btn"
+              onClick={() => handleCaseChange((selectedCase - 1 + realCases.length) % realCases.length)}
             >
               ←
             </button>
             <button
-              className="story-nav-btn next"
-              onClick={() => setSelectedCase((selectedCase + 1) % realCases.length)}
+              className="story-nav-btn"
+              onClick={() => handleCaseChange((selectedCase + 1) % realCases.length)}
             >
               →
             </button>
           </div>
         </div>
+      </div>
 
-        <div className="action-section">
-          <h2 className="action-title">Do this right now.</h2>
+      <div className="stats-section">
+        <div className="stat">
+          <div className="stat-number">442%</div>
+          <div className="stat-label">increase in vishing attacks in 2024</div>
+        </div>
+        <div className="stat">
+          <div className="stat-number">$40B</div>
+          <div className="stat-label">projected loss to deepfake scams by 2027</div>
+        </div>
+        <div className="stat">
+          <div className="stat-number">$1/month</div>
+          <div className="stat-label">cost of commercial voice cloning tools</div>
+        </div>
+      </div>
 
-          <div className="action-primary">
-            <div className="action-number">1</div>
-            <div className="action-content">
-              <h3>Pick a family code word</h3>
-              <p>
-                Choose a random phrase. Tell your family: if anyone calls asking for money, they must say this code word first.
-              </p>
-              <p className="action-why">
-                AI can clone voices. It cannot know your secret.
-              </p>
+      <AutonomousAI />
+
+      <AttackTimeline />
+
+      <VoiceCloneVisualization />
+
+      <HowItWorks />
+
+      <AuthComparison />
+
+      <div className="protections-section">
+        <h2 className="protections-title">How to protect yourself.</h2>
+        <p className="protections-intro">
+          AI can clone voices. It can bypass phone verification. It can trick authenticator apps. 
+          But AI cannot clone what you physically are or hold. Physical authentication is your strongest defense.
+        </p>
+        <div className="protections-grid">
+          {protections.map((protection) => (
+            <div key={protection.number} className="protection-card">
+              <div className="protection-number">{protection.number}</div>
+              <h3 className="protection-title">{protection.title}</h3>
+              <p className="protection-body">{protection.body}</p>
+              <p className="protection-reason">{protection.reason}</p>
             </div>
-          </div>
-
-          <div className="action-secondary">
-            <div className="action-item">
-              <div className="action-number">2</div>
-              <div className="action-text">
-                <h4>Never send money without calling back</h4>
-                <p>Hang up. Call the person using your saved contact. Real emergencies can wait 60 seconds.</p>
-              </div>
+          ))}
+        </div>
+        <div className="physical-auth-emphasis">
+          <h3 className="emphasis-title">Physical authentication stops AI</h3>
+          <div className="emphasis-grid">
+            <div className="emphasis-item">
+              <h4>Physical Security Keys</h4>
+              <p>YubiKey. Titan Security Key. You plug them in. AI cannot clone hardware.</p>
             </div>
-
-            <div className="action-item">
-              <div className="action-number">3</div>
-              <div className="action-text">
-                <h4>Talk to your parents today</h4>
-                <p>Show them these stories. Set up the code word with them. They are the primary target.</p>
-              </div>
+            <div className="emphasis-item">
+              <h4>Biometric Authentication</h4>
+              <p>Face ID. Fingerprint. Touch ID. AI cannot clone your face or fingerprint.</p>
             </div>
-
-            <div className="action-item">
-              <div className="action-number">4</div>
-              <div className="action-text">
-                <h4>Lock down social media</h4>
-                <p>Make all videos private or friends-only. Scammers scrape voices from public posts.</p>
-              </div>
+            <div className="emphasis-item">
+              <h4>Three-Factor Authentication</h4>
+              <p>Password. Smartphone. Fingerprint or face ID. Three layers. AI stops here.</p>
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="footer-section">
+        <p className="footer-text">The threat is real. The time is now.</p>
+        <p className="footer-subtext">Start with the family code word. Do it today.</p>
       </div>
     </div>
   )

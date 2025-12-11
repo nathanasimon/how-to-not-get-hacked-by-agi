@@ -1,0 +1,153 @@
+.attack-timeline {
+  padding: 6rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.timeline-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: #000;
+  text-align: center;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.timeline-intro {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(0.9375rem, 1.6vw, 1.0625rem);
+  color: #666;
+  text-align: center;
+  margin-bottom: 4rem;
+  line-height: 1.6;
+}
+
+.timeline-container {
+  position: relative;
+  padding-left: 3rem;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 1.5rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e5e5e5;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  padding-left: 3rem;
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+  transform: translateX(8px);
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -1.5rem;
+  top: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.timeline-item.hovered .timeline-marker {
+  transform: scale(1.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.marker-year {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.timeline-content {
+  padding: 1.5rem;
+  background: #fafafa;
+  border-radius: 12px;
+  border-left: 4px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.timeline-item.hovered .timeline-content {
+  background: #fff;
+  border-left-color: #000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-event {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.timeline-description {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(0.9375rem, 1.6vw, 1.0625rem);
+  color: #1d1d1f;
+  line-height: 1.6;
+}
+
+.timeline-note {
+  margin-top: 4rem;
+  padding: 2rem;
+  background: #fafafa;
+  border-radius: 12px;
+  border-left: 4px solid #000;
+}
+
+.timeline-note p {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(0.9375rem, 1.6vw, 1.0625rem);
+  color: #1d1d1f;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .attack-timeline {
+    padding: 4rem 1.5rem;
+  }
+
+  .timeline-container {
+    padding-left: 2rem;
+  }
+
+  .timeline-container::before {
+    left: 1rem;
+  }
+
+  .timeline-marker {
+    left: -1rem;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .marker-year {
+    font-size: 0.625rem;
+  }
+
+  .timeline-item {
+    padding-left: 2rem;
+  }
+}
+

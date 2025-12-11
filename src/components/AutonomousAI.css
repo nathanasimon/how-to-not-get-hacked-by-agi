@@ -1,0 +1,193 @@
+.autonomous-ai {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.autonomous-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: #000;
+  text-align: center;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.autonomous-intro {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(0.9375rem, 1.6vw, 1.0625rem);
+  color: #666;
+  text-align: center;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.autonomous-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.stat-box {
+  text-align: center;
+  padding: 2rem;
+  background: #fafafa;
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
+}
+
+.stat-number {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  color: #666;
+  line-height: 1.4;
+}
+
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.capability-card {
+  padding: 1.5rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+.capability-card:hover {
+  border-color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.capability-card.selected {
+  border-color: #000;
+  border-width: 2px;
+  background: #fafafa;
+}
+
+.capability-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.capability-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.autonomy-badge {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+  background: #000;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.capability-description {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(0.9375rem, 1.6vw, 1.0625rem);
+  color: #1d1d1f;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.capability-example {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e5e5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(0.875rem, 1.4vw, 1rem);
+  color: #1d1d1f;
+  line-height: 1.6;
+}
+
+.capability-example strong {
+  color: #000;
+  font-weight: 600;
+}
+
+.autonomous-warning {
+  padding: 2.5rem;
+  background: #fafafa;
+  border-radius: 12px;
+  border-left: 4px solid #000;
+}
+
+.autonomous-warning h3 {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.autonomous-warning p {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(0.9375rem, 1.6vw, 1.0625rem);
+  color: #1d1d1f;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.autonomous-warning p:last-child {
+  margin-bottom: 0;
+}
+
+.autonomous-warning strong {
+  color: #000;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .autonomous-ai {
+    padding: 4rem 1.5rem;
+  }
+
+  .autonomous-stats {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .capabilities-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .capability-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
